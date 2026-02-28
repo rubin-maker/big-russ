@@ -798,30 +798,36 @@
       color:#d8e7ff;
     }
 
-    /* Holdings logos unified to white brand treatment */
+    /* Holdings logo presentation */
     #holdings .tile .img{
       position: relative;
       overflow: hidden;
+      background:
+        radial-gradient(420px 180px at 50% 52%, rgba(59,130,246,.16), transparent 66%),
+        #0d1527;
+      padding: 10px 14px;
     }
     #holdings .tile .img img{
-      mix-blend-mode: screen;
-      opacity: .96;
-      filter: drop-shadow(0 0 14px rgba(255,255,255,.26)) grayscale(1) brightness(2.05) contrast(1.22);
+      width: min(100%, 260px);
+      height: auto;
+      max-height: 108px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,.34));
+      transition: transform .3s ease, filter .3s ease;
+    }
+    #holdings .tile:hover .img img{
+      transform: translateY(-2px) scale(1.02);
+      filter: drop-shadow(0 16px 26px rgba(0,0,0,.42));
     }
     #holdings .tile .img::after{
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background:
-        radial-gradient(240px 120px at 50% 50%, rgba(255,255,255,.12), transparent 68%);
-      mix-blend-mode: screen;
-    }
-    #holdings .tile .img .mark{
-      background: rgba(255,255,255,.05);
-      border-color: rgba(191,219,254,.45);
-      color: #f8fbff;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 0 14px rgba(191,219,254,.20);
+      background: linear-gradient(to top, rgba(255,255,255,.04), transparent 45%);
     }
 
     #leadership .grid-2{
@@ -1116,7 +1122,7 @@
           <div class="tile"><div class="img"><img src="br-energy.png" loading="lazy" alt="BigRuss Energy logo" /></div><div class="body"><strong>BigRuss Energy</strong><p>Powering the grid. Possibly the sun. Definitely the quarterly.</p></div></div>
           <div class="tile"><div class="img"><img src="br-music.png" loading="lazy" alt="BigRuss Music logo" /></div><div class="body"><strong>BigRuss Music</strong><p>Put it all in song. If it moves, we score it.</p></div></div>
           <div class="tile"><div class="img"><img src="br-logistics.png" loading="lazy" alt="RussRail Logistics logo" /></div><div class="body"><strong>RussRail Logistics</strong><p>Moving freight, moving markets. Forward motion. Backroom leverage.</p></div></div>
-          <div class="tile"><div class="img"><div class="mark" aria-label="BigRuss University mark">BRU</div></div><div class="body"><strong>BigRuss University</strong><p>Executive training, operator development, and internal leadership systems.</p></div></div>
+          <div class="tile"><div class="img"><img src="assets/logos/bigruss-university-white.svg" loading="lazy" alt="BigRuss University logo" /></div><div class="body"><strong>BigRuss University</strong><p>Executive training, operator development, and internal leadership systems.</p></div></div>
         </div>
       </section>
 

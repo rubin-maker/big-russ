@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="RussRail Logistics logo">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ffffff" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <rect x="60" y="118" width="156" height="112" rx="20" fill="none" stroke="#f8fbff" stroke-width="12"/>
+    <line x1="84" y1="154" x2="192" y2="154" stroke="#f8fbff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="84" y1="188" x2="192" y2="188" stroke="#f8fbff" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="96" cy="244" r="12" fill="#f8fbff"/>
+    <circle cx="180" cy="244" r="12" fill="#f8fbff"/>
+    <text x="286" y="176" fill="none" stroke="#f8fbff" stroke-width="6" font-family="Arial Black, Impact, sans-serif" font-size="104" letter-spacing="6">RUSSRAIL</text>
+    <text x="286" y="260" fill="#f8fbff" font-family="Arial, sans-serif" font-size="54" letter-spacing="14">LOGISTICS</text>
+  </g>
+</svg>

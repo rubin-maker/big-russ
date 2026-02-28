@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="BigRuss Music logo">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ffffff" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <circle cx="138" cy="180" r="84" fill="none" stroke="#f8fbff" stroke-width="12"/>
+    <path d="M112 126 V228 C112 248 130 262 150 262 C170 262 188 248 188 228 C188 208 170 194 150 194 C142 194 134 196 128 200 V152 L188 136 V228" fill="none" stroke="#f8fbff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="286" y="176" fill="none" stroke="#f8fbff" stroke-width="6" font-family="Arial Black, Impact, sans-serif" font-size="116" letter-spacing="6">BIGRUSS</text>
+    <text x="286" y="260" fill="#f8fbff" font-family="Arial, sans-serif" font-size="58" letter-spacing="16">MUSIC</text>
+  </g>
+</svg>
