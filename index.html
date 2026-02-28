@@ -1,0 +1,1738 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BigRuss Conglomerate</title>
+  <meta name="description" content="BigRuss Conglomerate — Power, while also grace." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicons (optional — include files if you have them) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    :root{
+      --page:#ffffff;
+      --panel:#ffffff;
+      --surface: rgba(255,255,255,.92);
+      --ink:#111214;
+      --muted:#6c717a;
+      --line: rgba(17,18,20,.12);
+      --line2: rgba(17,18,20,.08);
+      --shadow: 0 30px 80px rgba(0,0,0,.18);
+      --shadow2: 0 18px 50px rgba(0,0,0,.10);
+      --radius: 28px;
+      --radius2: 18px;
+      --max: 1120px;
+
+      --accent: #3b82f6; /* webby-blue */
+      --accent2: #22c55e; /* signal-green */
+      --ring: rgba(59,130,246,.35);
+
+      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-padding-top:84px}
+    body{
+      margin:0;
+      font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 12% 8%, rgba(59,130,246,.10), transparent 60%),
+        radial-gradient(700px 520px at 88% 12%, rgba(34,197,94,.10), transparent 60%),
+        radial-gradient(900px 600px at 50% 110%, rgba(17,18,20,.06), transparent 60%),
+        var(--page);
+      line-height:1.35;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+    body.modal-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    section[id]{scroll-margin-top:84px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+
+    .shell{
+      margin: 26px auto 36px;
+      padding: 18px;
+      background: rgba(17,18,20,.04);
+      border-radius: 34px;
+      position:relative;
+      z-index:1;
+    }
+    .page{
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.55);
+      position:relative;
+    }
+
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(17,18,20,.12), transparent);
+      margin:0;
+    }
+
+    /* Nav */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line2);
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    .topbar.scrolled{
+      box-shadow: 0 18px 50px rgba(0,0,0,.08);
+      border-bottom-color: rgba(17,18,20,.10);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 22px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand{
+      font-weight:900;
+      letter-spacing:.9px;
+      font-size:13px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      user-select:none;
+    }
+    .brand-bullet{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--ink);
+      opacity:.85;
+    }
+    .navlinks{
+      display:flex; gap:18px; align-items:center;
+      font-size:12px;
+      color: var(--muted);
+    }
+    .navlinks a:hover{color:var(--ink)}
+    .navcta{display:flex; gap:10px; align-items:center}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      min-height: 40px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:850;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--ink);
+      cursor:pointer;
+      transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      backdrop-filter: blur(8px);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(17,18,20,.18);
+      box-shadow: 0 16px 44px rgba(0,0,0,.10);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(17,18,20,1), rgba(17,18,20,.92));
+      color:#fff;
+      border-color: transparent;
+      box-shadow: 0 18px 54px rgba(0,0,0,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .btn.primary::after{
+      content:"";
+      position:absolute;
+      inset:-50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(59,130,246,.22), transparent 55%);
+      transform: translateX(-25%) rotate(25deg);
+      opacity:0;
+      transition: opacity .2s ease;
+      pointer-events:none;
+    }
+    .btn.primary:hover::after{opacity:.9}
+
+    :focus{outline:none}
+    :focus-visible{
+      outline: 3px solid var(--ring);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    #menuBtn{display:none}
+    @media (max-width: 900px){
+      .navlinks{display:none}
+      #menuBtn{display:inline-flex}
+    }
+
+    /* Sections */
+    section{padding: 44px 22px}
+    .section-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 22px;
+      margin-bottom: 16px;
+    }
+    .eyebrow{
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: rgba(108,113,122,.92);
+      margin-bottom: 10px;
+    }
+    h2{
+      margin:0;
+      font-size: 24px;
+      letter-spacing:-.3px;
+    }
+    .subcopy{
+      margin-top:6px;
+      color: var(--muted);
+      font-size: 12px;
+      max-width: 62ch;
+    }
+    .lead{
+      margin:0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 70ch;
+    }
+
+    /* Grids */
+    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
+    .grid-4{display:grid; grid-template-columns: repeat(4, 1fr); gap:12px}
+    @media (max-width: 980px){
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 720px){
+      section{padding: 34px 16px}
+      .topbar-inner{padding: 12px 16px}
+      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+      h2{font-size: 20px}
+      .hero .eyebrow{font-size: clamp(28px, 10vw, 38px);}
+      .btn{min-height:44px}
+    }
+
+    /* Cards */
+    .card{
+      background: var(--surface);
+      border: 1px solid var(--line2);
+      border-radius: var(--radius2);
+      padding: 14px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: var(--shadow2);
+      border-color: rgba(17,18,20,.16);
+    }
+    .card strong{display:block; font-size:12.5px; margin-bottom:6px}
+    .card p{margin:0; color:var(--muted); font-size:12px}
+
+    /* Hero */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      --px: 0px;
+      --py: 0px;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background:
+        radial-gradient(900px 520px at 18% 18%, rgba(0,0,0,.10), transparent 55%),
+        radial-gradient(700px 520px at 82% 30%, rgba(0,0,0,.08), transparent 60%),
+        linear-gradient(115deg, rgba(0,0,0,.06), rgba(255,255,255,.05), rgba(0,0,0,.08));
+      opacity:.20;
+      transform: translate3d(var(--px), var(--py), 0) scale(1.14);
+      z-index:0;
+      pointer-events:none;
+      will-change: transform;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 520px at 18% 18%, rgba(255,255,255,.14), transparent 55%),
+        radial-gradient(700px 520px at 82% 30%, rgba(0,0,0,.14), transparent 60%),
+        linear-gradient(115deg, rgba(0,0,0,.10), rgba(255,255,255,.06), rgba(0,0,0,.12));
+      mix-blend-mode: overlay;
+      opacity:.9;
+      z-index:1;
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:relative;
+      z-index:5;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+
+    /* BIG HERO TITLE */
+    .hero .eyebrow{
+      font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      font-size: clamp(34px, 6vw, 54px);
+      font-weight: 900;
+      letter-spacing: .5px;
+      color: var(--ink);
+      margin-bottom: 18px;
+      line-height: 1.05;
+      text-transform: none;
+    }
+
+    .logo-panel{
+      border-radius: var(--radius2);
+      border: 1px solid var(--line2);
+      background: radial-gradient(500px 220px at 35% 25%, rgba(59,130,246,.10), transparent 60%),
+                  radial-gradient(520px 260px at 70% 70%, rgba(34,197,94,.10), transparent 60%),
+                  #f4f5f7;
+      padding: 18px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 230px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.08);
+    }
+    .logo-panel img,
+    .logo-panel iframe{
+      width: 100%;
+      height: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      border: 0;
+      border-radius: 12px;
+    }
+    .hero-video{
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 194px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: #111827;
+    }
+    .hero-video img{
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      object-fit: cover;
+      border-radius: 0;
+      display: block;
+    }
+    .hero-video::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.52), rgba(0,0,0,.06));
+      pointer-events: none;
+    }
+    .play-pill{
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      z-index: 2;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(17,24,39,.82);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #f8fbff;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      backdrop-filter: blur(6px);
+    }
+    @media (max-width: 720px){
+      .logo-panel{min-height: 170px; padding: 12px 12px}
+      .logo-panel img,
+      .logo-panel iframe{max-height: 140px}
+      .hero-video{min-height: 128px}
+      .play-pill{
+        left: 8px;
+        bottom: 8px;
+        padding: 9px 13px;
+        font-size: 13px;
+      }
+    }
+
+    /* Holdings tiles */
+    .tile{
+      background: var(--surface);
+      border: 1px solid var(--line2);
+      border-radius: var(--radius2);
+      overflow:hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .tile:hover{
+      transform: translateY(-6px);
+      box-shadow: var(--shadow2);
+      border-color: rgba(17,18,20,.16);
+    }
+    .card::before, .tile::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius: inherit;
+      pointer-events:none;
+      opacity:0;
+      transition: opacity .18s ease;
+      background: radial-gradient(800px 240px at 20% 0%, rgba(59,130,246,.10), transparent 55%);
+    }
+    .card:hover::before, .tile:hover::before{opacity:1}
+    .card, .tile{position:relative}
+
+    .tile .img{
+      height: 128px;
+      background:#eceef1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line2);
+    }
+    .tile .img img{
+      width:100%;
+      height:100%;
+      object-fit: contain;
+      max-height: 98px;
+    }
+    .tile .img .mark{
+      width: 86px;
+      height: 86px;
+      border-radius: 16px;
+      border: 1px solid var(--line2);
+      background: linear-gradient(135deg, #f5f6f8, #e9ecf2);
+      display:grid;
+      place-items:center;
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: #30343c;
+      letter-spacing: .6px;
+    }
+    .tile .body{padding: 12px 14px}
+    .tile .body strong{display:block; font-size:12.5px; margin-bottom:6px}
+    .tile .body p{margin:0; color:var(--muted); font-size:12px}
+
+    /* Leadership */
+    .profile{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    @media (max-width: 720px){ .profile{grid-template-columns:1fr} }
+    .profile img{
+      width:100%;
+      height:auto;
+      aspect-ratio: 4 / 5;
+      min-height: 190px;
+      object-fit: cover;
+      object-position: center 24%;
+      border-radius: 16px;
+      border: 1px solid var(--line2);
+      background:#f2f3f5;
+    }
+    .profile img.portrait-tall{
+      aspect-ratio: 9 / 16;
+      object-position: center 12%;
+    }
+    .profile img.crop-top{
+      object-position: center 0%;
+    }
+    .profile .avatar-placeholder{
+      width:100%;
+      min-height: 190px;
+      aspect-ratio: 4 / 5;
+      border-radius: 16px;
+      border: 1px solid var(--line2);
+      background: linear-gradient(160deg, #eef1f5, #e4e8ee);
+      display:grid;
+      place-items:center;
+      font-family: var(--mono);
+      color: #59606b;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .role{
+      font-size:11px;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:8px;
+      font-family: var(--mono);
+    }
+    .name{
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.2px;
+      margin:0 0 10px;
+    }
+    .bio{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      max-width: 70ch;
+    }
+    .quote{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+      font-family: var(--mono);
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    /* Modals */
+    .modal-backdrop{
+      position:fixed; inset:0; z-index:999;
+      background: rgba(0,0,0,.55);
+      display:none;
+      align-items:center; justify-content:center;
+      padding:18px;
+    }
+    .modal{
+      width:min(720px, 100%);
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 30px 90px rgba(0,0,0,.30);
+      overflow:hidden;
+    }
+    .modal header{
+      padding:14px 16px;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid var(--line2);
+    }
+    .modal header strong{
+      font-size:12px; letter-spacing:1px; text-transform:uppercase;
+      font-family: var(--mono);
+    }
+    .modal .body{padding:16px}
+    .modal .body p{margin:0 0 10px; color:var(--muted); font-size:13px}
+    .close{
+      border:none; background:none; color:var(--muted);
+      cursor:pointer; font-size:14px;
+    }
+    .close:hover{color:var(--ink)}
+    input, textarea{
+      width:100%;
+      border-radius: 16px;
+      border:1px solid var(--line2);
+      background: rgba(255,255,255,.92);
+      color:var(--ink);
+      padding:12px 12px;
+      font-size:14px;
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width: 640px){ .form-row{grid-template-columns:1fr} }
+    .form-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:10px}
+
+    @media (max-width: 720px){
+      .wrap{padding:0 8px}
+      .shell{
+        margin: 10px auto 16px;
+        padding: 8px;
+        border-radius: 20px;
+      }
+      .page{border-radius: 18px}
+      .section-head{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .section-head .btn,
+      .section-head a.btn{align-self:flex-start}
+      .card{padding: 12px}
+      .profile{
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .profile img,
+      .profile .avatar-placeholder{
+        min-height: 0;
+        max-height: none;
+        aspect-ratio: 3 / 4;
+      }
+      .profile img.portrait-tall{
+        aspect-ratio: 9 / 16;
+      }
+      .profile img.crop-top{
+        object-position: center 0%;
+      }
+      .role{font-size:10px; letter-spacing:1.2px}
+      .name{font-size:17px}
+      .bio{font-size:12.5px}
+      footer{
+        padding: 14px 16px 18px !important;
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in{
+      opacity:1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1; transform:none; transition:none}
+      .card,.tile,.btn{transition:none}
+    }
+    @media (max-width: 720px){
+      .reveal{opacity:1; transform:none; transition:none}
+    }
+  </style>
+
+  <style>
+    /* Jack-style structure (neutralized) */
+    :root{
+      --bg:#0b1320;
+      --surface:#111a2a;
+      --surface-2:#162238;
+      --ink:#edf2ff;
+      --muted:#aeb8cd;
+      --line:#2a3955;
+      --line2:#314564;
+      --primary:#2563eb;
+      --primary-dark:#1d4ed8;
+      --chip:#1e2e4a;
+      --shadow:0 18px 40px rgba(0,0,0,.38);
+      --shadow2:0 14px 28px rgba(0,0,0,.28);
+      --radius:14px;
+      --radius2:12px;
+      --ring:rgba(37,99,235,.42);
+    }
+
+    body{
+      background:
+        radial-gradient(circle at 14% -8%, rgba(59,130,246,.24) 0%, transparent 34%),
+        radial-gradient(circle at 84% 2%, rgba(56,189,248,.14) 0%, transparent 36%),
+        linear-gradient(170deg, #0b1320 0%, #0d1627 100%);
+      color:var(--ink);
+      line-height:1.5;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:-25%;
+      z-index:-2;
+      pointer-events:none;
+      opacity:.16;
+      background:
+        radial-gradient(circle at 22% 30%, rgba(37,99,235,.4), transparent 35%),
+        radial-gradient(circle at 78% 56%, rgba(14,165,233,.28), transparent 42%),
+        radial-gradient(circle at 56% 84%, rgba(59,130,246,.22), transparent 36%);
+      filter: blur(24px);
+      animation: ambientCloud 14s ease-in-out infinite alternate;
+    }
+    body::after{
+      display:none;
+    }
+    @keyframes ambientCloud{
+      0%{transform:translate3d(-2%, -1%, 0) scale(1)}
+      100%{transform:translate3d(2%, 2%, 0) scale(1.06)}
+    }
+    @keyframes scanlineDrift{
+      from{transform:translateY(0)}
+      to{transform:translateY(10px)}
+    }
+
+    .wrap{width:min(1160px, 92vw); max-width:none; padding:0}
+    .shell{
+      margin:0 auto 44px;
+      padding:0;
+      background:transparent;
+      border-radius:0;
+    }
+    .page{
+      background:transparent;
+      border:none;
+      box-shadow:none;
+      border-radius:0;
+      overflow:visible;
+    }
+    .divider{display:none}
+
+    .topbar{
+      background: rgba(8,13,22,.9);
+      border-bottom:1px solid var(--line);
+      box-shadow: 0 6px 24px rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .topbar.scrolled{
+      box-shadow: 0 8px 28px rgba(0,0,0,.45);
+      border-bottom-color: var(--line2);
+    }
+    .topbar-inner{padding:12px 0}
+    .brand{
+      font-weight:800;
+      letter-spacing:.04em;
+      color:#f8fbff;
+    }
+    .brand-bullet{
+      background: linear-gradient(180deg, #93c5fd, #2563eb);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.18);
+    }
+    .navlinks{color:#d3ddf1; font-size:.92rem}
+    .navlinks a:hover{
+      color:#dbeafe;
+      text-shadow:none;
+    }
+
+    section{
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 24px;
+      margin-top: 18px;
+    }
+    .section-head{margin-bottom: 14px}
+    .eyebrow{color:#9fb1d1}
+    h2{color:#f4f8ff}
+    .subcopy,.lead{color:var(--muted)}
+
+    .btn{
+      background: #111d31;
+      color: #e6edff;
+      border:1px solid #375077;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+    .btn:hover{
+      border-color:#4a6ea7;
+      box-shadow: 0 14px 28px rgba(0,0,0,.32);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-color: transparent;
+      box-shadow: 0 14px 32px rgba(29,78,216,.36);
+      color: #f8fbff;
+    }
+    .btn.primary::after{
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(147,197,253,.28), transparent 55%);
+    }
+
+    .hero{
+      --bgx: 0px;
+      --bgy: 0px;
+      background:
+        radial-gradient(700px 380px at calc(14% + var(--bgx)) calc(14% + var(--bgy)), rgba(59,130,246,.26), transparent 60%),
+        radial-gradient(620px 420px at calc(85% - var(--bgx)) calc(10% + var(--bgy)), rgba(14,165,233,.16), transparent 62%),
+        var(--surface);
+    }
+    .hero .eyebrow{
+      font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color:#f3f8ff;
+      font-size: clamp(30px, 5.2vw, 56px);
+      letter-spacing: .01em;
+    }
+    .logo-panel{
+      background:
+        radial-gradient(440px 240px at 24% 22%, rgba(59,130,246,.22), transparent 62%),
+        radial-gradient(420px 260px at 72% 72%, rgba(14,165,233,.16), transparent 64%),
+        var(--surface-2);
+      border-color: var(--line2);
+      box-shadow: var(--shadow2);
+    }
+
+    .card,.tile{
+      background: var(--surface-2);
+      border-color: var(--line2);
+    }
+    .card:hover,.tile:hover{
+      border-color:#4b6790;
+    }
+    .card p,.tile .body p,.quote,.role,.bio{color:var(--muted)}
+    .card strong,.tile .body strong,.name{color:#f2f6ff}
+    .tile .img{
+      background:#0f1a2c;
+      border-bottom-color: var(--line2);
+    }
+    .tile .img .mark{
+      background: linear-gradient(135deg, #223454, #1a2943);
+      border-color:#3f5b88;
+      color:#d8e7ff;
+    }
+
+    /* Holdings logos unified to white brand treatment */
+    #holdings .tile .img{
+      position: relative;
+      overflow: hidden;
+    }
+    #holdings .tile .img img{
+      mix-blend-mode: screen;
+      opacity: .96;
+      filter: drop-shadow(0 0 14px rgba(255,255,255,.26)) grayscale(1) brightness(2.05) contrast(1.22);
+    }
+    #holdings .tile .img::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(240px 120px at 50% 50%, rgba(255,255,255,.12), transparent 68%);
+      mix-blend-mode: screen;
+    }
+    #holdings .tile .img .mark{
+      background: rgba(255,255,255,.05);
+      border-color: rgba(191,219,254,.45);
+      color: #f8fbff;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 0 14px rgba(191,219,254,.20);
+    }
+
+    #leadership .grid-2{
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    #leadership .profile{
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    #leadership .profile img,
+    #leadership .profile .avatar-placeholder{
+      min-height: 0;
+      aspect-ratio: 4 / 5;
+    }
+    #leadership .role{
+      letter-spacing:.08em;
+      font-size:.64rem;
+    }
+    #leadership .bio{max-width: none}
+
+    footer{
+      margin-top:18px;
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      color: var(--muted) !important;
+    }
+
+    @media (max-width: 1100px){
+      #leadership .grid-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+    }
+    @media (max-width: 820px){
+      .wrap{width:min(1160px, 94vw)}
+      .topbar-inner{padding:12px 0}
+      #leadership .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width: 720px){
+      .wrap{width:min(1160px, 96vw)}
+      section{padding:20px 16px}
+      .hero .eyebrow{font-size: clamp(28px, 9vw, 38px)}
+    }
+  </style>
+
+  <style>
+    .scroll-progress{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 120;
+      pointer-events: none;
+      transform-origin: 0 50%;
+      transform: scaleX(var(--scroll-progress, 0));
+      background: linear-gradient(90deg, #60a5fa, #22d3ee, #60a5fa);
+      background-size: 200% 100%;
+      animation: progressFlow 6s linear infinite;
+      box-shadow: 0 0 16px rgba(56,189,248,.65);
+    }
+
+    .navlinks a{
+      position: relative;
+      transition: color .2s ease, text-shadow .2s ease;
+    }
+    .navlinks a::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #93c5fd, #22d3ee);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform .25s ease;
+      opacity: .95;
+    }
+    .navlinks a:hover::after{transform: scaleX(1)}
+
+    .hero .eyebrow{
+      background: linear-gradient(95deg, #f9fcff 0%, #bfdbfe 42%, #f9fcff 76%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+      animation: titleShimmer 8s linear infinite;
+    }
+
+    section{
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
+    section:hover{
+      transform: translateY(-2px);
+      border-color: #37527d;
+      box-shadow: 0 22px 45px rgba(0,0,0,.34);
+    }
+
+    .card::before,
+    .tile::before{
+      background: radial-gradient(380px 180px at var(--mx, 20%) var(--my, 0%), rgba(59,130,246,.18), transparent 58%);
+    }
+
+    .card::after,
+    .tile::after{
+      content: "";
+      position: absolute;
+      inset: -120%;
+      background: linear-gradient(110deg, transparent 38%, rgba(255,255,255,.16) 50%, transparent 62%);
+      transform: translateX(-60%) rotate(14deg);
+      opacity: 0;
+      transition: transform .6s ease, opacity .3s ease;
+      pointer-events: none;
+    }
+    .card:hover::after,
+    .tile:hover::after{
+      transform: translateX(18%) rotate(14deg);
+      opacity: .55;
+    }
+
+    .logo-panel{
+      animation: panelFloat 7s ease-in-out infinite;
+    }
+    .hero-video{
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .hero-video:hover{
+      transform: translateY(-4px) scale(1.01);
+      border-color: rgba(191,219,254,.55);
+      box-shadow: 0 16px 34px rgba(0,0,0,.38), 0 0 0 1px rgba(191,219,254,.22);
+    }
+    .hero-video img{
+      transition: transform 7s ease;
+    }
+    .hero-video:hover img{
+      transform: scale(1.06);
+    }
+    .play-pill{
+      animation: badgePulse 2.4s ease-in-out infinite;
+    }
+
+    .reveal{
+      opacity: 0;
+      transform: translateY(22px) scale(.985);
+      filter: blur(2px);
+      transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.2,.8,.2,1),
+        filter .55s ease;
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    @keyframes titleShimmer{
+      0%{background-position: 0% 0}
+      100%{background-position: 220% 0}
+    }
+    @keyframes panelFloat{
+      0%,100%{transform: translateY(0)}
+      50%{transform: translateY(-6px)}
+    }
+    @keyframes badgePulse{
+      0%,100%{box-shadow: 0 0 0 0 rgba(96,165,250,.38)}
+      50%{box-shadow: 0 0 0 10px rgba(96,165,250,0)}
+    }
+    @keyframes progressFlow{
+      0%{background-position: 0% 50%}
+      100%{background-position: 200% 50%}
+    }
+
+    @media (max-width: 900px){
+      section:hover{transform: none}
+      .logo-panel{animation: none}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .scroll-progress{animation: none}
+      .hero .eyebrow,
+      .logo-panel,
+      .play-pill{animation: none}
+      section,
+      .hero-video,
+      .hero-video img{transition: none}
+      section:hover,
+      .hero-video:hover{
+        transform: none;
+        box-shadow: inherit;
+      }
+      .card::after,
+      .tile::after{display: none}
+      .navlinks a::after{transition: none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="wrap shell">
+    <div class="page">
+
+      <!-- NAV -->
+      <div class="topbar">
+        <div class="topbar-inner">
+          <div class="brand"><span class="brand-bullet"></span> /BIGRUSS</div>
+
+          <nav class="navlinks">
+            <a href="#about">About</a>
+            <a href="#holdings">Holdings</a>
+            <a href="#industries">Industries</a>
+            <a href="#technology">Technology</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#jack-global">Intel</a>
+          </nav>
+
+          <div class="navcta">
+            <button class="btn" id="menuBtn" aria-label="Open menu">Menu</button>
+            <button class="btn primary" id="openContact">Contact</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">BIG RUSS CONGLOMERATE</div>
+            <p class="lead">
+              The highest performing conglomerate built for disciplined growth.
+              Operating in shadow and daylight simultaneously.
+            </p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn primary" href="#holdings">See Holdings</a>
+              <a class="btn" href="#technology">Technology</a>
+              <a class="btn" href="#jack-global">Jack Global</a>
+            </div>
+          </div>
+
+          <div class="logo-panel" aria-label="BigRuss video">
+            <a class="hero-video" href="https://youtu.be/9vKTH7sfHwc" target="_blank" rel="noopener noreferrer" aria-label="Watch BigRuss video on YouTube">
+              <img src="https://i.ytimg.com/vi/9vKTH7sfHwc/maxresdefault.jpg" alt="BigRuss YouTube video thumbnail" loading="eager" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/9vKTH7sfHwc/hqdefault.jpg';" />
+              <span class="play-pill">▶ Watch on YouTube</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">/ABOUT</div>
+            <h2>Relentless growth. Unquestioned scale.</h2>
+            <div class="subcopy">We acquire, optimize, and scale with discipline.</div>
+          </div>
+          <button class="btn primary" id="openDeck2">Request Deck</button>
+        </div>
+
+        <div class="grid-3">
+          <div class="card"><strong>Shadow + Daylight</strong><p>Simultaneous operations.</p></div>
+          <div class="card"><strong>Bigger Fish</strong><p>Exactly. Exactly.</p></div>
+          <div class="card"><strong>Total Touch</strong><p>Global influence with measurable outcomes.</p></div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- HOLDINGS -->
+      <section id="holdings">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">/HOLDINGS</div>
+            <h2>Holdings Solutions</h2>
+            <div class="subcopy">Diverse business needs. Unclear methods. Consistent outcomes.</div>
+          </div>
+          <a class="btn primary" href="#contact">See All</a>
+        </div>
+
+        <div class="grid-2">
+          <div class="tile"><div class="img"><img src="br-media.png" loading="lazy" alt="BigRuss Media logo" /></div><div class="body"><strong>BigRuss Media</strong><p>Narrative infrastructure at scale. Clean typography. Unsettling confidence.</p></div></div>
+          <div class="tile"><div class="img"><img src="br-youtube.png" loading="lazy" alt="BigRuss YouTube logo" /></div><div class="body"><strong>BigRuss YouTube</strong><p>Streaming at scale with disciplined audience growth and distribution.</p></div></div>
+          <div class="tile"><div class="img"><img src="br-law.png" loading="lazy" alt="BigRuss Law logo" /></div><div class="body"><strong>BigRuss Law</strong><p>Strategic interpretation of reality. Outcomes may vary by jurisdiction.</p></div></div>
+          <div class="tile"><div class="img"><img src="br-energy.png" loading="lazy" alt="BigRuss Energy logo" /></div><div class="body"><strong>BigRuss Energy</strong><p>Powering the grid. Possibly the sun. Definitely the quarterly.</p></div></div>
+          <div class="tile"><div class="img"><img src="br-music.png" loading="lazy" alt="BigRuss Music logo" /></div><div class="body"><strong>BigRuss Music</strong><p>Put it all in song. If it moves, we score it.</p></div></div>
+          <div class="tile"><div class="img"><img src="br-logistics.png" loading="lazy" alt="RussRail Logistics logo" /></div><div class="body"><strong>RussRail Logistics</strong><p>Moving freight, moving markets. Forward motion. Backroom leverage.</p></div></div>
+          <div class="tile"><div class="img"><div class="mark" aria-label="BigRuss University mark">BRU</div></div><div class="body"><strong>BigRuss University</strong><p>Executive training, operator development, and internal leadership systems.</p></div></div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- INDUSTRIES -->
+      <section id="industries">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">/INDUSTRIES</div>
+            <h2>Tailored dominance for every business</h2>
+          </div>
+          <div class="subcopy">Every sector has unique problems. We respond with scale, precision, and calm inevitability.</div>
+        </div>
+
+        <div class="grid-4">
+          <div class="card"><strong>Retail & E-Commerce</strong><p>Streamlined fulfillment. Reduced friction. Increased compliance.</p></div>
+          <div class="card"><strong>Manufacturing</strong><p>Supply chain control from raw materials to finished goods.</p></div>
+          <div class="card"><strong>Healthcare & Pharmacy</strong><p>Secure handling for sensitive shipments and high-stakes timing.</p></div>
+          <div class="card"><strong>Technology & Electronics</strong><p>Scaling systems across regions, time zones, and complex markets.</p></div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- TECHNOLOGY -->
+      <section id="technology">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">/TECHNOLOGY</div>
+            <h2>Innovation that moves your business</h2>
+            <div class="subcopy">Modern systems to improve operations, visibility, and execution.</div>
+          </div>
+          <a class="btn primary" href="#contact">Learn More</a>
+        </div>
+
+        <div class="grid-2">
+          <div class="card"><strong>Real-Time Tracking</strong><p>Know where everything is. Always. Even when it isn’t.</p></div>
+          <div class="card"><strong>Data Analytics</strong><p>Identify bottlenecks, opportunities, and performance gaps.</p></div>
+          <div class="card"><strong>Automated Updates</strong><p>Automated reporting for consistent visibility and faster decisions.</p></div>
+          <div class="card"><strong>Secure Portal</strong><p>Access controlled by ALICAT and the executive leadership team.</p></div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- LEADERSHIP -->
+      <section id="leadership">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">/LEADERSHIP</div>
+            <h2>Many leaders. One empire.</h2>
+            <div class="subcopy">Built for continuity, scale, and long-horizon execution.</div>
+          </div>
+          <a class="btn primary" href="#contact">Contact Leadership</a>
+        </div>
+
+        <div class="grid-2">
+          <div class="card profile">
+            <img src="corey-new.png" loading="lazy" alt="BigRuss portrait" />
+            <div>
+              <div class="role">Founder · Chairman · Conglomerate</div>
+              <div class="name">BigRuss</div>
+              <p class="bio">Built the Conglomerate from nothing. Or from something. Details remain classified. He’s an L. Ron Hubbard–type figure: founded the operation, now lives on a boat, and mostly does nothing. The executive team runs day-to-day operations using his name, legacy, and aura.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="ali-cat-new.png" loading="lazy" alt="ALICAT portrait" />
+            <div>
+              <div class="role">Chief Executive Officer</div>
+              <div class="name">ALICAT</div>
+              <p class="bio">Catlike — but also human. Watches before acting. Lands precisely. When BigRuss declares expansion, ALICAT executes it.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="jordan-new.png" loading="lazy" alt="Jordan portrait" />
+            <div>
+              <div class="role">Head of BigRuss Media</div>
+              <div class="name">Jordan</div>
+              <p class="bio">Jordan is like both good at old media and new media.</p>
+              <div class="quote">— Draymond Green</div>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="mike.jpg" loading="lazy" alt="Mike portrait" />
+            <div>
+              <div class="role">General Counsel</div>
+              <div class="name">Mike</div>
+              <p class="bio">Mike has passed the bar in every state for fun and specializes in all areas of the law.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="will-new.jpg" loading="lazy" alt="Will portrait" />
+            <div>
+              <div class="role">Senior Counsel</div>
+              <div class="name">Will</div>
+              <p class="bio">Advises on commercial agreements, risk allocation, and multi-jurisdiction transaction support.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="megan-lawyer.png" loading="lazy" alt="Meagan portrait" />
+            <div>
+              <div class="role">Senior Counsel</div>
+              <div class="name">Meagan</div>
+              <p class="bio">Leads regulatory review, policy alignment, and legal-operational coordination across portfolios.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="lou-lawyer.png" loading="lazy" alt="Lou portrait" />
+            <div>
+              <div class="role">Senior Counsel</div>
+              <div class="name">Lou</div>
+              <p class="bio">Owns legal process execution, dispute readiness, and contract lifecycle controls.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="barry-cto.jpg" loading="lazy" alt="Barry portrait" />
+            <div>
+              <div class="role">Chief Strategy Officer</div>
+              <div class="name">Barry</div>
+              <p class="bio">Leads strategic planning and execution using proprietary advanced tooling to transform leadership conversations into production outcomes.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="devin.jpg" loading="lazy" alt="Devin portrait" />
+            <div>
+              <div class="role">Chief Technology Officer</div>
+              <div class="name">Devin</div>
+              <p class="bio">Owns platform architecture, systems reliability, and technical operations across the conglomerate.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="russell-new.png" loading="lazy" alt="Corey portrait" />
+            <div>
+              <div class="role">Chief of AI</div>
+              <div class="name">Corey</div>
+              <p class="bio">The biggest proponent of AI. Her full-time job is taking away jobs and replacing them with AI.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="john-new.png" loading="lazy" alt="John portrait" />
+            <div>
+              <div class="role">Head of Community Engagement · Head of Demos</div>
+              <div class="name">John</div>
+              <p class="bio">According to John's mother, John hates mushrooms. John organzied pre organzied folders and files.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="john-h.jpg" loading="lazy" alt="John H portrait" />
+            <div>
+              <div class="role">CFO · Chief Financial Officer</div>
+              <div class="name">John H</div>
+              <p class="bio">He can simultaneously ride a bike and do Excel at the same time with his eyes closed. We will send proof upon request.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="eric-new.png" loading="lazy" alt="Eric portrait" />
+            <div>
+              <div class="role">Head of Scooter and Micro Transportation</div>
+              <div class="name">Eric</div>
+              <p class="bio">Eric's goal is to get all cars off the road in New York City and other large cities and put everyone on scooters. He's currently looking at micro transportation that works in heavy snow storms.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img class="crop-top" src="jesse-new.jpg" loading="lazy" alt="Jesse portrait" />
+            <div>
+              <div class="role">Head of BigRuss Sales and Customer Development</div>
+              <div class="name">Jesse</div>
+              <p class="bio">Leads pipeline growth, enterprise partnerships, and long-horizon customer development.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img class="crop-top" src="big-p-new.png" loading="lazy" alt="Big P portrait" />
+            <div>
+              <div class="role">Senior Counsel</div>
+              <div class="name">Big P</div>
+              <p class="bio">Supports legal strategy, transaction review, and risk positioning across business units.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="lil-p-new.png" loading="lazy" alt="Lil P portrait" />
+            <div>
+              <div class="role">Head of BigRuss Real Estate</div>
+              <div class="name">Lil P</div>
+              <p class="bio">Oversees portfolio acquisition, site strategy, and operating leverage across real estate markets.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="lambo-new.jpeg" loading="lazy" alt="Lambo portrait" />
+            <div>
+              <div class="role">Head of BRC Construction</div>
+              <div class="name">Lambo</div>
+              <p class="bio">Leads build execution, contractor coordination, and delivery timelines across projects.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="bret-new.jpg" loading="lazy" alt="Bret Raybould portrait" />
+            <div>
+              <div class="role">Head of BRC Comedy</div>
+              <div class="name">Bret Raybould</div>
+              <p class="bio">Once made a so-called comedy video about JFK-era history that sparked immediate controversy.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="amanda-courtney.jpg" loading="lazy" alt="Amanda and Courtney portrait" />
+            <div>
+              <div class="role">Co-Heads of BRC Mental Health</div>
+              <div class="name">Amanda and Courtney</div>
+              <p class="bio">Co-lead mental health programming, operational support models, and care access initiatives.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="will-b-new.jpg" loading="lazy" alt="Will B portrait" />
+            <div>
+              <div class="role">Head of BRC Beginner Level Hockey</div>
+              <div class="name">Will B</div>
+              <p class="bio">Will has never seen red.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="liam.jpeg" loading="lazy" alt="Liam portrait" />
+            <div>
+              <div class="role">Head of BRC Reinsurance</div>
+              <div class="name">Liam</div>
+              <p class="bio">Oversees reinsurance strategy, risk transfer structures, and counterparty execution.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="campbell-new.png" loading="lazy" alt="Campbell portrait" />
+            <div>
+              <div class="role">Head of BRC Analytics</div>
+              <div class="name">Campbell</div>
+              <p class="bio">Leads analytics systems, performance reporting, and decision support across divisions.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="oliver-gabe.png" loading="lazy" alt="Oliver and Gabe portrait" />
+            <div>
+              <div class="role">Heads of BRC Bonjour</div>
+              <div class="name">Oliver and Gabe</div>
+              <p class="bio">Lead BRC Bonjour strategy, cross-market rollout, and bilingual operating execution.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="jacqui.jpg" loading="lazy" alt="Jacqui portrait" />
+            <div>
+              <div class="role">Head of BRC Advertising</div>
+              <div class="name">Jacqui</div>
+              <p class="bio">A giant hypocrite when it comes to people vaping.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="melanie-new.png" loading="lazy" alt="Melanie portrait" />
+            <div>
+              <div class="role">Head of BRC Suburban Engagement</div>
+              <div class="name">Melanie</div>
+              <p class="bio">Leads regional outreach strategy and suburban engagement programs across markets.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="julz-new.jpg" loading="lazy" alt="Julz portrait" />
+            <div>
+              <div class="role">Head of Human Relations</div>
+              <div class="name">Julz</div>
+              <p class="bio">Leads people operations, internal culture systems, and organization-wide human relations.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="lisa-h.jpg" loading="lazy" alt="Lisa H portrait" />
+            <div>
+              <div class="role">Grounds Keeper</div>
+              <div class="name">Lisa H</div>
+              <p class="bio">Expert in what trees and plants grow well in Richmond.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="bonnie-quentin.png" loading="lazy" alt="Bonnie and Quentin portrait" />
+            <div>
+              <div class="role">Interns</div>
+              <div class="name">Bonnie and Quentin</div>
+              <p class="bio">Good at daily tasks that no one else wants to do because they are above these types of activities.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="john-wilson.png" loading="lazy" alt="John Wilson portrait" />
+            <div>
+              <div class="role">Head of Janitorial Engineering</div>
+              <div class="name">John Wilson</div>
+              <p class="bio">Leads janitorial engineering systems and operational standards across facilities.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="matt-new.jpg" loading="lazy" alt="Matt portrait" />
+            <div>
+              <div class="role">Head of BigRuss Energy</div>
+              <div class="name">Matt</div>
+              <p class="bio">Leads energy portfolio strategy, operational discipline, and infrastructure deployment.</p>
+            </div>
+          </div>
+
+          <div class="card profile">
+            <img src="woodsy-new.jpg" loading="lazy" alt="Woodsy portrait" />
+            <div>
+              <div class="role">Head of BigRuss University</div>
+              <div class="name">Woodsy</div>
+              <p class="bio">Leads internal education, executive development, and leadership pipeline programs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- INTEL -->
+      <section id="jack-global">
+        <span id="intel" aria-hidden="true"></span>
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">/COMPETITIVE INTEL</div>
+            <h2>Competitive landscape</h2>
+            <div class="subcopy">Jack Global operates in adjacent markets. We monitor, benchmark, and execute.</div>
+          </div>
+          <button class="btn primary" id="openIntel2">Open Dossier</button>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <strong>Jack Global</strong>
+            <p style="margin:0; color:var(--muted); font-size:12px">
+              Jack Global is a principal at <strong>OmniCore Universal Holdings</strong> and an active player in related sectors.
+              Public positioning differs by market; operational overlap appears selective.
+              <br/><br/>
+              External profile: <a href="https://jack-global.com/" target="_blank" rel="noopener noreferrer">jack-global.com</a>
+              <br/><br/>
+              We treat every competitor as a live input to strategy, not a distraction.
+            </p>
+          </div>
+
+          <div class="card">
+            <strong>Reality Check</strong>
+            <p style="margin:0; color:var(--muted); font-size:12px">
+              We do not overcommit resources to competitor narratives.
+              <br/><br/>Our focus is on verified competitive intelligence around automation and monitoring technologies.
+              <br/><br/>Focus remains on execution, ownership, and long-term control.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">/CONTACT</div>
+            <h2>Partnership inquiries</h2>
+            <div class="subcopy">Reviewed on a schedule that benefits us.</div>
+          </div>
+          <button class="btn primary" id="openContact2">Submit Proposal</button>
+        </div>
+
+        <div class="grid-2">
+          <div class="card"><strong>Email</strong><p>partnerships@bigrussconglomerate.com</p></div>
+          <div class="card"><strong>Phone</strong><p>(555) 010-0199</p></div>
+        </div>
+      </section>
+
+      <footer style="padding: 18px 22px 26px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line2); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>© <span id="year"></span> BigRuss Conglomerate. All rights reserved.</div>
+        <div>Global operations. Strategic discretion.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-label="Contact">
+    <div class="modal">
+      <header>
+        <strong>Partnership Inquiry</strong>
+        <button class="close" data-close="contactModal">✕</button>
+      </header>
+      <div class="body">
+        <p>All submissions are confidential unless they become useful.</p>
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" />
+          <input type="email" placeholder="Your Email" />
+        </div>
+        <div style="height:10px"></div>
+        <textarea placeholder="Message"></textarea>
+        <div class="form-actions">
+          <button class="btn" type="button" data-close="contactModal">Cancel</button>
+          <button class="btn primary" type="button" id="sendContact">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intel Modal -->
+  <div class="modal-backdrop" id="intelModal" role="dialog" aria-modal="true" aria-label="Dossier">
+    <div class="modal">
+      <header>
+        <strong>Competitive Dossier: Jack Global</strong>
+        <button class="close" data-close="intelModal">✕</button>
+      </header>
+      <div class="body">
+        <p>
+          Jack Global runs another conglomerate. They are not a serious competitor.
+          They are simply the opposite of competence.
+          <br/><br/>Status: disliked. Intensely.
+        </p>
+        <div class="form-actions">
+          <button class="btn primary" type="button" data-close="intelModal">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Modal -->
+  <div class="modal-backdrop" id="menuModal" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="modal">
+      <header>
+        <strong>Navigation</strong>
+        <button class="close" data-close="menuModal">✕</button>
+      </header>
+      <div class="body">
+        <p style="margin:0 0 12px;">Where would you like to go?</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a class="btn" href="#about">About</a>
+          <a class="btn" href="#holdings">Holdings</a>
+          <a class="btn" href="#industries">Industries</a>
+          <a class="btn" href="#technology">Technology</a>
+          <a class="btn" href="#leadership">Leadership</a>
+          <a class="btn" href="#jack-global">Intel</a>
+          <a class="btn primary" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Topbar shadow on scroll
+    const topbar = document.querySelector('.topbar');
+    const scrollProgress = document.querySelector('.scroll-progress');
+    const setTopbar = () => {
+      if(!topbar) return;
+      if(window.scrollY > 8) topbar.classList.add('scrolled');
+      else topbar.classList.remove('scrolled');
+    };
+    const setScrollProgress = () => {
+      if(!scrollProgress) return;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+      scrollProgress.style.setProperty('--scroll-progress', ratio.toFixed(4));
+    };
+    const syncChrome = () => {
+      setTopbar();
+      setScrollProgress();
+    };
+    window.addEventListener('scroll', syncChrome, {passive:true});
+    window.addEventListener('resize', setScrollProgress, {passive:true});
+    syncChrome();
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // Modal helpers
+    const modalSelector = '.modal-backdrop';
+    const hasOpenModals = ()=> [...document.querySelectorAll(modalSelector)].some(el=>el.style.display === 'flex');
+    const open = (id)=>{
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.style.display = 'flex';
+      document.body.classList.add('modal-open');
+    };
+    const close = (id)=>{
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.style.display = 'none';
+      if(!hasOpenModals()) document.body.classList.remove('modal-open');
+    };
+
+    document.getElementById('openContact')?.addEventListener('click', ()=>open('contactModal'));
+    document.getElementById('openContact2')?.addEventListener('click', ()=>open('contactModal'));
+    document.getElementById('openDeck2')?.addEventListener('click', ()=>open('contactModal'));
+    document.getElementById('openIntel2')?.addEventListener('click', ()=>open('intelModal'));
+    document.getElementById('menuBtn')?.addEventListener('click', ()=>open('menuModal'));
+    document.getElementById('sendContact')?.addEventListener('click', fakeSubmit);
+
+    document.querySelectorAll('#menuModal a').forEach(a=>a.addEventListener('click', ()=>close('menuModal')));
+
+    document.querySelectorAll('[data-close]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const target = btn.getAttribute('data-close');
+        if(target) close(target);
+      });
+    });
+
+    document.querySelectorAll('.modal-backdrop').forEach(backdrop=>{
+      backdrop.addEventListener('click', (e)=>{
+        if(e.target === backdrop) close(backdrop.id);
+      });
+    });
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key !== 'Escape') return;
+      const openModals = [...document.querySelectorAll(modalSelector)].filter(el=>el.style.display === 'flex');
+      if(openModals.length) close(openModals[openModals.length - 1].id);
+    });
+
+    function fakeSubmit(){
+      alert("Submission received. Processing will commence when advantageous.");
+      close('contactModal'); close('intelModal'); close('menuModal');
+    }
+
+    // Scroll reveal + subtle hero parallax
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){
+      const revealTargets = document.querySelectorAll('section, .tile, .card, .logo-panel');
+      const mobile = window.matchMedia('(max-width: 720px)').matches;
+      const canObserve = 'IntersectionObserver' in window;
+
+      revealTargets.forEach((el, i)=>{
+        el.classList.add('reveal');
+        el.style.setProperty('--reveal-delay', `${(i % 10) * 45}ms`);
+      });
+
+      if(mobile || !canObserve){
+        revealTargets.forEach(el=>el.classList.add('in'));
+      } else {
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(en=>{
+            if(en.isIntersecting) en.target.classList.add('in');
+          });
+        },{threshold:.12});
+        revealTargets.forEach(el=>io.observe(el));
+      }
+
+      document.querySelectorAll('.card, .tile').forEach(el=>{
+        el.addEventListener('pointermove', (e)=>{
+          const rect = el.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          el.style.setProperty('--mx', `${x.toFixed(2)}%`);
+          el.style.setProperty('--my', `${y.toFixed(2)}%`);
+        });
+        el.addEventListener('pointerleave', ()=>{
+          el.style.removeProperty('--mx');
+          el.style.removeProperty('--my');
+        });
+      });
+
+      const hero = document.querySelector('.hero');
+      if(hero && !mobile){
+        let tx=0, ty=0, cx=0, cy=0;
+        window.addEventListener('mousemove', (e)=>{
+          const mx = window.innerWidth/2;
+          const my = window.innerHeight/2;
+          tx = (e.clientX - mx) / mx;
+          ty = (e.clientY - my) / my;
+        }, {passive:true});
+
+        function tick(){
+          cx += (tx - cx) * 0.06;
+          cy += (ty - cy) * 0.06;
+          const s = window.scrollY || 0;
+          const sf = Math.min(s / 900, 1);
+          hero.style.setProperty('--px', (cx * 16) + 'px');
+          hero.style.setProperty('--py', ((cy * 12) + (sf * 14)) + 'px');
+          hero.style.setProperty('--bgx', (cx * 4) + 'px');
+          hero.style.setProperty('--bgy', ((cy * 3) + (sf * 5)) + 'px');
+          requestAnimationFrame(tick);
+        }
+        tick();
+      }
+    }
+  </script>
+</body>
+</html>

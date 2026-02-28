@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-label="Silhouette portrait">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eff2f6"/>
+      <stop offset="100%" stop-color="#dfe5ec"/>
+    </linearGradient>
+    <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a93a0"/>
+      <stop offset="100%" stop-color="#6d7683"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="520" fill="url(#bg)"/>
+  <circle cx="200" cy="170" r="86" fill="url(#fg)"/>
+  <path d="M68 462c0-86 58-144 132-144s132 58 132 144" fill="url(#fg)"/>
+  <rect x="120" y="312" width="160" height="28" rx="14" fill="url(#fg)" opacity="0.86"/>
+</svg>
