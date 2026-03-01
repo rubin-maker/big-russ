@@ -1087,11 +1087,13 @@
           <div class="logo-panel" aria-label="BigRuss video">
             <div class="hero-video has-embed" aria-label="BigRuss embedded YouTube video">
               <iframe
-                id="heroYouTubeEmbed"
-                src="https://www.youtube-nocookie.com/embed/9vKTH7sfHwc?rel=0&modestbranding=1&playsinline=1"
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/9vKTH7sfHwc?si=jnemGn_L7NFOD9PT"
                 title="YouTube video player"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="origin-when-cross-origin"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
                 loading="eager">
               </iframe>
@@ -1695,26 +1697,6 @@
       alert("Submission received. Processing will commence when advantageous.");
       close('contactModal'); close('intelModal'); close('menuModal');
     }
-
-    // Build a robust YouTube embed URL at runtime to avoid provider policy mismatches.
-    (function configureHeroEmbed(){
-      const frame = document.getElementById('heroYouTubeEmbed');
-      if(!frame) return;
-
-      const params = new URLSearchParams({
-        rel: '0',
-        modestbranding: '1',
-        playsinline: '1',
-        enablejsapi: '1'
-      });
-
-      if(window.location.protocol === 'https:' || window.location.protocol === 'http:'){
-        params.set('origin', window.location.origin);
-        params.set('widget_referrer', window.location.href);
-      }
-
-      frame.src = `https://www.youtube-nocookie.com/embed/9vKTH7sfHwc?${params.toString()}`;
-    })();
 
     // Scroll reveal + subtle hero parallax
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
