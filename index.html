@@ -530,6 +530,7 @@
       border-radius: 22px;
       border:1px solid rgba(255,255,255,.25);
       background: rgba(255,255,255,.92);
+      color: #0f172a;
       backdrop-filter: blur(14px);
       box-shadow: 0 30px 90px rgba(0,0,0,.30);
       overflow:hidden;
@@ -542,20 +543,38 @@
     .modal header strong{
       font-size:12px; letter-spacing:1px; text-transform:uppercase;
       font-family: var(--mono);
+      color: #0f172a;
     }
     .modal .body{padding:16px}
-    .modal .body p{margin:0 0 10px; color:var(--muted); font-size:13px}
+    .modal .body p{margin:0 0 10px; color:#334155; font-size:13px}
     .close{
-      border:none; background:none; color:var(--muted);
+      border:none; background:none; color:#475569;
       cursor:pointer; font-size:14px;
     }
-    .close:hover{color:var(--ink)}
+    .close:hover{color:#0f172a}
+    .modal a{color:#0f172a}
+    .modal .btn{
+      background: #f8fafc;
+      color: #0f172a;
+      border-color: #cbd5e1;
+      box-shadow: 0 8px 20px rgba(15,23,42,.08);
+    }
+    .modal .btn:hover{
+      border-color: #94a3b8;
+      box-shadow: 0 12px 24px rgba(15,23,42,.12);
+    }
+    .modal .btn.primary{
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 10px 24px rgba(37,99,235,.34);
+    }
     input, textarea{
       width:100%;
       border-radius: 16px;
       border:1px solid var(--line2);
       background: rgba(255,255,255,.92);
-      color:var(--ink);
+      color:#0f172a;
       padding:12px 12px;
       font-size:14px;
       outline:none;
