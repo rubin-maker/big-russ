@@ -1681,7 +1681,7 @@
     // Scroll reveal + subtle hero parallax
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!reduce){
-      const revealTargets = document.querySelectorAll('section, .tile, .card, .logo-panel');
+      const revealTargets = document.querySelectorAll('.tile, .card, .logo-panel');
       const mobile = window.matchMedia('(max-width: 720px)').matches;
       const canObserve = 'IntersectionObserver' in window;
 
