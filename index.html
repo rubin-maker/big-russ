@@ -353,14 +353,6 @@
       border-radius: 0;
       display: block;
     }
-    .hero-video iframe{
-      width: 100%;
-      height: 100%;
-      min-height: inherit;
-      border: 0;
-      border-radius: 0;
-      display: block;
-    }
     .hero-video::after{
       content: "";
       position: absolute;
@@ -368,7 +360,6 @@
       background: linear-gradient(to top, rgba(0,0,0,.52), rgba(0,0,0,.06));
       pointer-events: none;
     }
-    .hero-video.has-embed::after{display:none}
     .play-pill{
       position: absolute;
       left: 12px;
@@ -972,8 +963,7 @@
       border-color: rgba(191,219,254,.55);
       box-shadow: 0 16px 34px rgba(0,0,0,.38), 0 0 0 1px rgba(191,219,254,.22);
     }
-    .hero-video img,
-    .hero-video iframe{
+    .hero-video img{
       transition: transform 7s ease;
     }
     .hero-video:hover img{
@@ -1028,8 +1018,7 @@
       .play-pill{animation: none}
       section,
       .hero-video,
-      .hero-video img,
-      .hero-video iframe{transition: none}
+      .hero-video img{transition: none}
       section:hover,
       .hero-video:hover{
         transform: none;
@@ -1085,19 +1074,10 @@
           </div>
 
           <div class="logo-panel" aria-label="BigRuss video">
-            <div class="hero-video has-embed" aria-label="BigRuss embedded YouTube video">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/9vKTH7sfHwc?si=jnemGn_L7NFOD9PT"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-                loading="eager">
-              </iframe>
-            </div>
+            <a class="hero-video" href="https://youtu.be/9vKTH7sfHwc" target="_blank" rel="noopener noreferrer" aria-label="Watch BigRuss video on YouTube">
+              <img src="https://i.ytimg.com/vi/9vKTH7sfHwc/maxresdefault.jpg" alt="BigRuss YouTube video thumbnail" loading="eager" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/9vKTH7sfHwc/hqdefault.jpg';" />
+              <span class="play-pill">▶ Watch on YouTube</span>
+            </a>
           </div>
         </div>
       </section>
