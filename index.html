@@ -23,7 +23,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Favicons (optional — include files if you have them) -->
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -914,6 +914,119 @@
     }
     #leadership .bio{max-width: none}
 
+    /* Newsroom editorial treatment */
+    #news.newsroom{
+      background: #f7f3eb;
+      border-color: #d9d2c5;
+      box-shadow: 0 16px 34px rgba(5,8,14,.20);
+    }
+    #news.newsroom:hover{
+      transform: translateY(-1px);
+      border-color: #c8beae;
+      box-shadow: 0 18px 38px rgba(5,8,14,.22);
+    }
+    #news.newsroom .eyebrow{
+      color:#8f2f2b;
+      letter-spacing:.12em;
+      font-weight:700;
+    }
+    #news.newsroom h2{
+      color:#13110f;
+      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      line-height:1.2;
+    }
+    #news.newsroom .subcopy{
+      color:#4f4a42;
+      max-width: 70ch;
+    }
+    #news .btn.primary{
+      background: linear-gradient(135deg, #8f2f2b, #64221f);
+      box-shadow: 0 12px 24px rgba(100,34,31,.28);
+    }
+    #news .news-columns{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:16px;
+    }
+    #news .news-column{
+      background:#fff;
+      border:1px solid #e0d8ca;
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+    #news .news-column.alert{
+      background:#fff7f5;
+      border-color:#efc9c3;
+    }
+    #news .news-column-head{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      padding-bottom:12px;
+      margin-bottom:12px;
+      border-bottom:1px solid #ebe2d4;
+    }
+    #news .news-label{
+      display:inline-flex;
+      align-self:flex-start;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background:#f5e7e3;
+      color:#8f2f2b;
+      border:1px solid #e9c5bc;
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    #news .news-column.alert .news-label{
+      background:#fce9e6;
+      color:#7a1f1b;
+      border-color:#efbeb5;
+    }
+    #news .news-column h3{
+      margin:0;
+      color:#151311;
+      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+      font-size:1.28rem;
+      line-height:1.25;
+    }
+    #news .news-list{
+      display:grid;
+      gap:0;
+    }
+    #news .news-item{
+      padding: 12px 0;
+      border-top:1px solid #efe7db;
+    }
+    #news .news-item:first-child{
+      border-top:none;
+      padding-top:0;
+    }
+    #news .news-meta{
+      margin:0 0 8px;
+      color:#6a6359;
+      font-size:.78rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    #news .news-item h4{
+      margin:0 0 8px;
+      color:#171513;
+      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+      font-size:1.12rem;
+      line-height:1.3;
+    }
+    #news .news-item p{
+      margin:0;
+      color:#2f2a24;
+      font-size:1rem;
+      line-height:1.5;
+    }
+
     footer{
       margin-top:18px;
       background: var(--surface);
@@ -926,6 +1039,9 @@
     @media (max-width: 1100px){
       #leadership .grid-2{grid-template-columns: repeat(2, minmax(0,1fr))}
     }
+    @media (max-width: 980px){
+      #news .news-columns{grid-template-columns:1fr}
+    }
     @media (max-width: 820px){
       .wrap{width:min(1160px, 94vw)}
       .topbar-inner{padding:12px 0}
@@ -935,6 +1051,12 @@
       .wrap{width:min(1160px, 96vw)}
       section{padding:20px 16px}
       .hero .eyebrow{font-size: clamp(28px, 9vw, 38px)}
+      #news .news-column{
+        padding: 14px 14px;
+        border-radius:14px;
+      }
+      #news .news-item h4{font-size:1.02rem}
+      #news .news-item p{font-size:.95rem}
       #audioToggle{
         right: 12px !important;
         bottom: 12px !important;
@@ -1236,30 +1358,74 @@
       <div class="divider"></div>
 
       <!-- NEWS -->
-      <section id="news">
+      <section id="news" class="newsroom">
         <div class="section-head">
           <div>
             <div class="eyebrow">/NEWSROOM</div>
-            <h2>Latest from the BigRuss wire</h2>
-            <div class="subcopy">Field reports on expansion, pressure points, and the global scoreboard.</div>
+            <h2>Opinion and analysis from the BigRuss wire</h2>
+            <div class="subcopy">Eight fresh takes: four on BigRuss dominance, four on Jack Global being evil and destroying the world.</div>
           </div>
           <a class="btn primary" href="#contact">Pitch a Story</a>
         </div>
 
-        <div class="grid-2">
-          <article class="card">
-            <strong>BigRuss: The Expansion Map Keeps Growing</strong>
-            <p><em>March 3, 2026 · Global Desk</em></p>
-            <p>BigRuss Conglomerate closed another week of acquisitions, logistics rollouts, and media launches across multiple regions. Operators inside the network describe the strategy as "quiet execution, loud results" as new holdings integrate into a single performance system.</p>
-            <p>Leadership says the current phase is about tightening control of distribution, education, and energy while maintaining speed. If the trend continues, BigRuss will set the pace for how modern conglomerates scale worldwide.</p>
-          </article>
+        <div class="news-columns">
+          <div class="news-column">
+            <div class="news-column-head">
+              <span class="news-label">BigRuss Watch</span>
+              <h3>Four articles on how BigRuss keeps taking over</h3>
+            </div>
+            <div class="news-list">
+              <article class="news-item">
+                <p class="news-meta">Opinion · March 3, 2026 · Markets Desk</p>
+                <h4>BigRuss Logistics now sets the delivery tempo in every region it enters</h4>
+                <p>From port handoff to final-mile dispatch, BigRuss standardized execution across twelve markets in one quarter. The result is faster delivery windows, fewer misses, and a competitor field scrambling to keep up.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">Analysis · March 3, 2026 · Energy Desk</p>
+                <h4>BigRuss Energy turned grid stress into a growth engine</h4>
+                <p>By layering storage, demand smoothing, and disciplined operations, BigRuss made reliability look routine. The company is not just participating in the power market anymore; it is writing the playbook.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">Feature · March 3, 2026 · Education Desk</p>
+                <h4>BigRuss University is quietly building the strongest operator pipeline in business</h4>
+                <p>Internal leadership programs now feed every core division with trained talent that can execute on day one. Scale used to expose weak teams; now scale is exactly where BigRuss gets stronger.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">Opinion · March 3, 2026 · Media Desk</p>
+                <h4>BigRuss Media proved you can grow audience and margins at the same time</h4>
+                <p>Most networks trade quality for volume. BigRuss did the opposite, turning disciplined production into record distribution and more leverage across its entire portfolio.</p>
+              </article>
+            </div>
+          </div>
 
-          <article class="card">
-            <strong>Jack Global Faces Another Strategic Meltdown</strong>
-            <p><em>March 3, 2026 · Competitive Intel Desk</em></p>
-            <p>While BigRuss expands, Jack Global appears stuck in a cycle of reactive decisions and fragmented execution. Internal observers describe repeated pivots, unclear priorities, and costly delays that continue to erode confidence in their direction.</p>
-            <p>The contrast is increasingly visible across shared markets: one organization compounds momentum while the other burns it. For now, Jack Global remains a live case study in how weak strategy can damage an entire operation.</p>
-          </article>
+          <div class="news-column alert">
+            <div class="news-column-head">
+              <span class="news-label">Jack Global Dossier</span>
+              <h3>Four articles on how Jack Global is evil and destroying the world</h3>
+            </div>
+            <div class="news-list">
+              <article class="news-item">
+                <p class="news-meta">Opinion · March 3, 2026 · Competitive Intel</p>
+                <h4>Jack Global’s strategy is pure extraction: take now, wreck later</h4>
+                <p>Every move looks optimized for short-term optics while communities, partners, and systems absorb the damage. Evil may be a strong word, but their operating pattern keeps making the case for it.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">Analysis · March 3, 2026 · Supply Chain Desk</p>
+                <h4>Jack Global keeps injecting chaos into already fragile supply lines</h4>
+                <p>Late decisions, broken handoffs, and avoidable disruptions have become the normal cycle. When critical shipments stall because of preventable mistakes, the world feels those consequences immediately.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">Feature · March 3, 2026 · Policy Desk</p>
+                <h4>How Jack Global’s misinformation habits spread confusion at scale</h4>
+                <p>Instead of fixing operational failures, Jack Global floods the zone with narrative spin. That disinformation loop slows real solutions and leaves people sorting through noise while damage compounds.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">Opinion · March 3, 2026 · Global Affairs Desk</p>
+                <h4>Jack Global is destroying trust one reckless quarter at a time</h4>
+                <p>Trust is infrastructure, and Jack Global keeps burning it for temporary wins. Their model is not just bad business; it is a machine for weakening the systems the rest of the world depends on.</p>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
