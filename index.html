@@ -1712,7 +1712,7 @@
         }
       };
 
-      ['pointerdown', 'click', 'keydown', 'touchstart'].forEach(evt=>{
+      ['pointerdown', 'click', 'keydown', 'touchstart', 'mousemove', 'wheel'].forEach(evt=>{
         document.addEventListener(evt, autoUnmuteAfterInteraction, {capture:true});
       });
 
