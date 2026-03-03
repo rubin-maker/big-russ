@@ -432,6 +432,11 @@ button:focus-visible {
   transform: scale(1.03);
 }
 
+img.poster-thumb {
+  object-fit: contain !important;
+  background: #111;
+}
+
 .site-footer {
   width: min(var(--max), 95vw);
   margin: 0 auto 26px;
