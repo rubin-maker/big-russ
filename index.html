@@ -798,6 +798,26 @@
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 60%),
         radial-gradient(circle at 70% 70%, rgba(147,197,253,.28), transparent 55%);
     }
+    #audioToggle{
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 140;
+      padding: 14px 22px;
+      min-height: 58px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: .02em;
+      border-width: 2px;
+      border-color: #67a0ff;
+      background: linear-gradient(135deg, #1f4fb0, #163878);
+      color: #f8fbff;
+      box-shadow: 0 18px 36px rgba(3, 10, 28, .56);
+    }
+    #audioToggle:hover{
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 24px 40px rgba(3, 10, 28, .62);
+    }
 
     .hero{
       --bgx: 0px;
@@ -913,6 +933,13 @@
       .wrap{width:min(1160px, 96vw)}
       section{padding:20px 16px}
       .hero .eyebrow{font-size: clamp(28px, 9vw, 38px)}
+      #audioToggle{
+        right: 12px;
+        bottom: 12px;
+        min-height: 54px;
+        padding: 12px 18px;
+        font-size: 18px;
+      }
     }
   </style>
 
