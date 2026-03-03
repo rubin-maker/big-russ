@@ -10,172 +10,216 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/newsroom.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="util-bar wrap">
-      <span>Tuesday, March 3, 2026</span>
-      <span>National Edition</span>
-      <span>Vol. 1 No. 42</span>
-    </div>
-    <div class="masthead wrap">
-      <div class="publication">
-        <span class="kicker">Independent newsroom style coverage</span>
-        <h1>BigRuss Dispatch</h1>
-        <p class="dek">Deep reporting on global expansion, market pressure points, and competitive damage done by Jack Global.</p>
-      </div>
-      <div class="header-links">
-        <a href="index.html">BigRuss Conglomerate Home</a>
-        <a href="#top-stories">Top Stories</a>
-        <a href="#bigruss-watch">BigRuss Watch</a>
-        <a href="#jack-global-dossier">Jack Global Dossier</a>
+<body class="news-home">
+  <header class="nh-header">
+    <div class="nh-top wrap">
+      <div class="nh-mark">A</div>
+      <div class="nh-wordmark">The BigRuss Dispatch</div>
+      <div class="nh-actions">
+        <a href="index.html">Conglomerate Home</a>
+        <a class="nh-subscribe" href="index.html#contact">Subscribe</a>
       </div>
     </div>
-    <nav class="section-nav">
+    <nav class="nh-nav">
       <div class="wrap">
-        <a class="active" href="news.html">Front Page</a>
-        <a href="#top-stories">Top Stories</a>
+        <a class="active" href="news.html">Home</a>
         <a href="#bigruss-watch">BigRuss Watch</a>
         <a href="#jack-global-dossier">Jack Global Dossier</a>
-        <a href="index.html#contact">Contact Desk</a>
+        <a href="#dealmakers">Dealmakers</a>
+        <a href="#culture-junkie">Culture Junkie</a>
       </div>
     </nav>
   </header>
 
-  <div class="breaking-strip wrap">
-    <strong>Breaking</strong>
-    <span>BigRuss closes another expansion week while Jack Global posts another cycle of strategic failures.</span>
-  </div>
+  <main class="nh-layout wrap">
+    <aside class="nh-left-rail">
+      <section class="nh-rail-card">
+        <h3>Newsletters</h3>
+        <ul class="nh-newsletters">
+          <li><span class="swatch s1"></span><a href="news/bigruss-media-margins.html">BigRuss Daily</a></li>
+          <li><span class="swatch s2"></span><a href="news/bigruss-logistics-tempo.html">Ship Desk</a></li>
+          <li><span class="swatch s3"></span><a href="news/jack-global-extraction-model.html">Dossier PM</a></li>
+          <li><span class="swatch s4"></span><a href="news/bigruss-energy-grid-engine.html">Grid Watch</a></li>
+          <li><span class="swatch s5"></span><a href="news/jack-global-supply-chaos.html">Chain Failure</a></li>
+          <li><span class="swatch s6"></span><a href="news/bigruss-university-pipeline.html">Operator Notes</a></li>
+          <li><span class="swatch s7"></span><a href="news/jack-global-disinformation-loop.html">Narrative Audit</a></li>
+          <li><span class="swatch s8"></span><a href="news/jack-global-trust-collapse.html">Trust Index</a></li>
+        </ul>
+      </section>
 
-  <main class="news-front wrap" id="top-stories">
-    <section class="lead-grid">
-      <article class="card lead-story">
-        <p class="story-kicker">Lead Story</p>
-        <h2><a href="news/bigruss-logistics-tempo.html">BigRuss Logistics now sets the delivery tempo in every region it enters</a></h2>
-        <p class="story-dek">What looked like a routine operations upgrade is now a market reset. BigRuss transformed handoff reliability, shortened transit windows, and forced rivals to respond on BigRuss timing instead of their own.</p>
-        <figure class="lead-story-image">
-          <a href="news/bigruss-logistics-tempo.html"><img src="russrail-logistics-new.png" alt="BigRuss logistics visual" loading="lazy" /></a>
-          <figcaption>BigRuss Dispatch File Photo: Logistics systems expansion continues across markets.</figcaption>
-        </figure>
-        <p class="story-meta">March 3, 2026 | Markets Desk | 6 min read</p>
-        <a class="read-link" href="news/bigruss-logistics-tempo.html">Read full article -></a>
-      </article>
+      <section class="nh-rail-card nh-yellow-card">
+        <h4>The Wakeup</h4>
+        <p>Morning briefing from the desk at 7:00 AM ET.</p>
+      </section>
+    </aside>
 
-      <aside class="card lead-rail">
+    <section class="nh-main-column">
+      <section class="nh-hero-grid">
+        <article class="nh-hero-small">
+          <a href="news/jack-global-supply-chaos.html"><img src="craig-stage.png" alt="Supply chain crisis coverage" loading="lazy"></a>
+          <h3><a href="news/jack-global-supply-chaos.html">Supply chains keep cracking under Jack Global mistakes</a></h3>
+          <p>Investigations Desk</p>
+        </article>
+
+        <article class="nh-hero-main">
+          <div class="nh-chip">Feature</div>
+          <a href="news/bigruss-university-pipeline.html"><img src="big-russ-university-new.png" alt="BigRuss University spotlight" loading="lazy"></a>
+          <h2><a href="news/bigruss-university-pipeline.html">14 Dangerous Ideas from a New New Hollywood of BigRuss Operators</a></h2>
+          <p>Inside the internal system producing execution-first leaders across divisions.</p>
+        </article>
+
+        <article class="nh-hero-small">
+          <a href="news/jack-global-disinformation-loop.html"><img src="dish-update.png" alt="Disinformation story" loading="lazy"></a>
+          <h3><a href="news/jack-global-disinformation-loop.html">How Jack Global weaponized confusion</a></h3>
+          <p>Policy Desk</p>
+        </article>
+      </section>
+
+      <section class="nh-stream">
+        <article class="nh-stream-item">
+          <a class="thumb" href="news/bigruss-logistics-tempo.html"><img src="russrail-logistics-new.png" alt="Logistics story" loading="lazy"></a>
+          <div>
+            <h3><a href="news/bigruss-logistics-tempo.html">BigRuss logistics has reset the delivery standard</a></h3>
+            <p>March 3, 2026 | Markets Desk</p>
+          </div>
+        </article>
+        <article class="nh-stream-item">
+          <a class="thumb" href="news/bigruss-energy-grid-engine.html"><img src="big-russ-energy-new.png" alt="Energy story" loading="lazy"></a>
+          <div>
+            <h3><a href="news/bigruss-energy-grid-engine.html">The grid stress playbook now belongs to BigRuss Energy</a></h3>
+            <p>March 3, 2026 | Energy Desk</p>
+          </div>
+        </article>
+        <article class="nh-stream-item">
+          <a class="thumb" href="news/bigruss-media-margins.html"><img src="big-russ-media-new.png" alt="Media story" loading="lazy"></a>
+          <div>
+            <h3><a href="news/bigruss-media-margins.html">BigRuss Media found the audience + margin cheat code</a></h3>
+            <p>March 3, 2026 | Media Desk</p>
+          </div>
+        </article>
+        <article class="nh-stream-item">
+          <a class="thumb" href="news/jack-global-extraction-model.html"><img src="john-h.jpg" alt="Extraction model story" loading="lazy"></a>
+          <div>
+            <h3><a href="news/jack-global-extraction-model.html">Jack Global extraction model leaves predictable wreckage</a></h3>
+            <p>March 3, 2026 | Competitive Intel</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="nh-section" id="bigruss-watch">
+        <div class="nh-section-head">
+          <h2>BigRuss Watch</h2>
+          <a href="news/bigruss-logistics-tempo.html">See all</a>
+        </div>
+        <div class="nh-grid3">
+          <article>
+            <a href="news/bigruss-logistics-tempo.html"><img src="russrail-logistics-new.png" alt="Logistics article" loading="lazy"></a>
+            <h3><a href="news/bigruss-logistics-tempo.html">BigRuss Logistics now sets the delivery tempo in every region</a></h3>
+          </article>
+          <article>
+            <a href="news/bigruss-energy-grid-engine.html"><img src="big-russ-energy-new.png" alt="Energy article" loading="lazy"></a>
+            <h3><a href="news/bigruss-energy-grid-engine.html">BigRuss Energy turned grid stress into a growth engine</a></h3>
+          </article>
+          <article>
+            <a href="news/bigruss-media-margins.html"><img src="big-russ-media-new.png" alt="Media article" loading="lazy"></a>
+            <h3><a href="news/bigruss-media-margins.html">You can grow audience and margins at the same time</a></h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="nh-section nh-section-alt" id="dealmakers">
+        <div class="nh-section-head">
+          <h2>Dealmakers</h2>
+          <a href="news/bigruss-university-pipeline.html">Latest</a>
+        </div>
+        <div class="nh-deal-layout">
+          <article class="lead-deal">
+            <a href="news/bigruss-university-pipeline.html"><img src="big-russ-university-new.png" alt="Dealmakers lead" loading="lazy"></a>
+            <h3><a href="news/bigruss-university-pipeline.html">The billion-dollar operator pipeline no one else can clone</a></h3>
+          </article>
+          <div class="deal-list">
+            <article><a href="news/bigruss-energy-grid-engine.html">Why BigRuss Energy keeps winning contracts rivals cannot hold</a></article>
+            <article><a href="news/bigruss-logistics-tempo.html">The logistics tempo advantage is widening by the week</a></article>
+            <article><a href="news/jack-global-supply-chaos.html">Jack Global supply chain losses are now structural</a></article>
+            <article><a href="news/jack-global-trust-collapse.html">Trust collapse is becoming a direct market penalty</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="nh-section" id="jack-global-dossier">
+        <div class="nh-section-head">
+          <h2>Jack Global Dossier</h2>
+          <a href="news/jack-global-extraction-model.html">Read file</a>
+        </div>
+        <div class="nh-grid4">
+          <article>
+            <a href="news/jack-global-extraction-model.html"><img src="john-h.jpg" alt="Dossier story" loading="lazy"></a>
+            <h3><a href="news/jack-global-extraction-model.html">Take now, wreck later: the extraction strategy</a></h3>
+          </article>
+          <article>
+            <a href="news/jack-global-supply-chaos.html"><img src="craig-stage.png" alt="Supply dossier story" loading="lazy"></a>
+            <h3><a href="news/jack-global-supply-chaos.html">Fragile supply lines keep absorbing Jack Global errors</a></h3>
+          </article>
+          <article>
+            <a href="news/jack-global-disinformation-loop.html"><img src="dish-update.png" alt="Disinformation dossier story" loading="lazy"></a>
+            <h3><a href="news/jack-global-disinformation-loop.html">Confusion as operating strategy</a></h3>
+          </article>
+          <article>
+            <a href="news/jack-global-trust-collapse.html"><img src="john-wilson.png" alt="Trust dossier story" loading="lazy"></a>
+            <h3><a href="news/jack-global-trust-collapse.html">Trust destruction has become quarterly policy</a></h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="nh-section" id="culture-junkie">
+        <div class="nh-section-head">
+          <h2>Culture Junkie</h2>
+          <a href="news/bigruss-media-margins.html">More</a>
+        </div>
+        <div class="nh-grid3 mini">
+          <article>
+            <a href="news/bigruss-media-margins.html"><img src="big-russ-media-new.png" alt="Culture story" loading="lazy"></a>
+            <h3><a href="news/bigruss-media-margins.html">When print fought cruise and barely won back attention</a></h3>
+          </article>
+          <article>
+            <a href="news/jack-global-disinformation-loop.html"><img src="dish-update.png" alt="Culture story" loading="lazy"></a>
+            <h3><a href="news/jack-global-disinformation-loop.html">What disinformation does to entertainment business reporting</a></h3>
+          </article>
+          <article>
+            <a href="news/bigruss-university-pipeline.html"><img src="big-russ-university-new.png" alt="Culture story" loading="lazy"></a>
+            <h3><a href="news/bigruss-university-pipeline.html">The school that turned operators into newsroom celebrities</a></h3>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <aside class="nh-right-rail">
+      <section class="nh-rail-card">
         <h3>Most Read</h3>
-        <ol class="rail-list">
-          <li class="rail-item">
-            <a href="news/jack-global-trust-collapse.html">
-              <small>Opinion</small>
-              <span>Jack Global is destroying trust one reckless quarter at a time</span>
-            </a>
-          </li>
-          <li class="rail-item">
-            <a href="news/bigruss-energy-grid-engine.html">
-              <small>Analysis</small>
-              <span>BigRuss Energy turned grid stress into a growth engine</span>
-            </a>
-          </li>
-          <li class="rail-item">
-            <a href="news/jack-global-disinformation-loop.html">
-              <small>Feature</small>
-              <span>How Jack Global's misinformation habits spread confusion at scale</span>
-            </a>
-          </li>
-          <li class="rail-item">
-            <a href="news/bigruss-media-margins.html">
-              <small>Opinion</small>
-              <span>BigRuss Media proved you can grow audience and margins at the same time</span>
-            </a>
-          </li>
-          <li class="rail-item">
-            <a href="news/jack-global-supply-chaos.html">
-              <small>Investigations</small>
-              <span>Jack Global keeps injecting chaos into already fragile supply lines</span>
-            </a>
-          </li>
+        <ol class="nh-mostread">
+          <li><a href="news/jack-global-trust-collapse.html">Jack Global is destroying trust one reckless quarter at a time</a></li>
+          <li><a href="news/bigruss-energy-grid-engine.html">Grid stress became BigRuss Energy's growth engine</a></li>
+          <li><a href="news/jack-global-disinformation-loop.html">The misinformation loop keeps widening</a></li>
+          <li><a href="news/bigruss-media-margins.html">Audience and margins rising together</a></li>
+          <li><a href="news/bigruss-logistics-tempo.html">Delivery tempo now favors BigRuss in every region</a></li>
         </ol>
-      </aside>
-    </section>
+      </section>
 
-    <section class="card coverage-block" id="bigruss-watch">
-      <div class="block-head">
-        <h3>BigRuss Watch</h3>
-        <p>Four stories tracking how BigRuss is outperforming across logistics, energy, leadership development, and media economics.</p>
-      </div>
-      <div class="story-cards">
-        <article class="story-card">
-          <a class="story-card-media" href="news/bigruss-logistics-tempo.html"><img src="russrail-logistics-new.png" alt="BigRuss logistics coverage" loading="lazy" /></a>
-          <p class="story-meta">Opinion | March 3, 2026 | Markets Desk</p>
-          <h4><a href="news/bigruss-logistics-tempo.html">BigRuss Logistics now sets the delivery tempo in every region it enters</a></h4>
-          <p>A full breakdown of the operating model now pressuring every major competitor.</p>
-          <a class="read-link" href="news/bigruss-logistics-tempo.html">Read story -></a>
-        </article>
+      <section class="nh-rail-card">
+        <h3>On the Record</h3>
+        <div class="nh-voices">
+          <article><img src="barry-cto.jpg" alt="Barry" loading="lazy"><p>Barry: "Execution is the story."</p></article>
+          <article><img src="corey-new.png" alt="BigRuss" loading="lazy"><p>BigRuss: "Tempo beats noise."</p></article>
+          <article><img src="ali-cat-new.png" alt="ALICAT" loading="lazy"><p>ALICAT: "Discipline is the differentiator."</p></article>
+        </div>
+      </section>
 
-        <article class="story-card">
-          <a class="story-card-media" href="news/bigruss-energy-grid-engine.html"><img src="big-russ-energy-new.png" alt="BigRuss energy coverage" loading="lazy" /></a>
-          <p class="story-meta">Analysis | March 3, 2026 | Energy Desk</p>
-          <h4><a href="news/bigruss-energy-grid-engine.html">BigRuss Energy turned grid stress into a growth engine</a></h4>
-          <p>How storage, dispatch discipline, and load balancing created a durable edge.</p>
-          <a class="read-link" href="news/bigruss-energy-grid-engine.html">Read story -></a>
-        </article>
-
-        <article class="story-card">
-          <a class="story-card-media" href="news/bigruss-university-pipeline.html"><img src="big-russ-university-new.png" alt="BigRuss university coverage" loading="lazy" /></a>
-          <p class="story-meta">Feature | March 3, 2026 | Education Desk</p>
-          <h4><a href="news/bigruss-university-pipeline.html">BigRuss University is quietly building the strongest operator pipeline in business</a></h4>
-          <p>Inside the system producing execution-ready talent before rivals can hire.</p>
-          <a class="read-link" href="news/bigruss-university-pipeline.html">Read story -></a>
-        </article>
-
-        <article class="story-card">
-          <a class="story-card-media" href="news/bigruss-media-margins.html"><img src="big-russ-media-new.png" alt="BigRuss media coverage" loading="lazy" /></a>
-          <p class="story-meta">Opinion | March 3, 2026 | Media Desk</p>
-          <h4><a href="news/bigruss-media-margins.html">BigRuss Media proved you can grow audience and margins at the same time</a></h4>
-          <p>A case study in disciplined content, smart distribution, and commercial leverage.</p>
-          <a class="read-link" href="news/bigruss-media-margins.html">Read story -></a>
-        </article>
-      </div>
-    </section>
-
-    <section class="card coverage-block alert" id="jack-global-dossier">
-      <div class="block-head">
-        <h3>Jack Global Dossier</h3>
-        <p>Four pieces documenting the pattern: destructive choices, weak leadership, and damage exported into shared markets.</p>
-      </div>
-      <div class="story-cards">
-        <article class="story-card">
-          <a class="story-card-media" href="news/jack-global-extraction-model.html"><img src="john-h.jpg" alt="Jack Global dossier coverage" loading="lazy" /></a>
-          <p class="story-meta">Opinion | March 3, 2026 | Competitive Intel</p>
-          <h4><a href="news/jack-global-extraction-model.html">Jack Global's strategy is pure extraction: take now, wreck later</a></h4>
-          <p>The short-term optics playbook that keeps leaving long-term wreckage.</p>
-          <a class="read-link" href="news/jack-global-extraction-model.html">Read story -></a>
-        </article>
-
-        <article class="story-card">
-          <a class="story-card-media" href="news/jack-global-supply-chaos.html"><img src="craig-stage.png" alt="Supply chain disruption coverage" loading="lazy" /></a>
-          <p class="story-meta">Investigations | March 3, 2026 | Supply Chain Desk</p>
-          <h4><a href="news/jack-global-supply-chaos.html">Jack Global keeps injecting chaos into already fragile supply lines</a></h4>
-          <p>Why preventable delays and broken handoffs have become routine outcomes.</p>
-          <a class="read-link" href="news/jack-global-supply-chaos.html">Read story -></a>
-        </article>
-
-        <article class="story-card">
-          <a class="story-card-media" href="news/jack-global-disinformation-loop.html"><img src="dish-update.png" alt="Disinformation coverage" loading="lazy" /></a>
-          <p class="story-meta">Feature | March 3, 2026 | Policy Desk</p>
-          <h4><a href="news/jack-global-disinformation-loop.html">How Jack Global's misinformation habits spread confusion at scale</a></h4>
-          <p>A closer look at the narrative machinery used to blur accountability.</p>
-          <a class="read-link" href="news/jack-global-disinformation-loop.html">Read story -></a>
-        </article>
-
-        <article class="story-card">
-          <a class="story-card-media" href="news/jack-global-trust-collapse.html"><img src="john-wilson.png" alt="Trust and governance coverage" loading="lazy" /></a>
-          <p class="story-meta">Opinion | March 3, 2026 | Global Affairs Desk</p>
-          <h4><a href="news/jack-global-trust-collapse.html">Jack Global is destroying trust one reckless quarter at a time</a></h4>
-          <p>Trust is infrastructure, and this is how it gets dismantled.</p>
-          <a class="read-link" href="news/jack-global-trust-collapse.html">Read story -></a>
-        </article>
-      </div>
-    </section>
+      <section class="nh-rail-card nh-yellow-card">
+        <h4>The Wakeup</h4>
+        <p>Get our daily briefing and the top five stories before the market opens.</p>
+        <a class="nh-subscribe" href="index.html#contact">Get it free</a>
+      </section>
+    </aside>
   </main>
 
   <footer class="site-footer">
