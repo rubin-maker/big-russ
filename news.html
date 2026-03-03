@@ -3,303 +3,172 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BigRuss News Desk</title>
-  <meta name="description" content="BigRuss News Desk — opinion and analysis." />
-
+  <title>BigRuss Dispatch</title>
+  <meta name="description" content="BigRuss Dispatch front page with analysis, investigations, and opinion." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#f2ede3;
-      --panel:#ffffff;
-      --ink:#191612;
-      --muted:#5a534a;
-      --line:#ddd3c2;
-      --line2:#eae2d6;
-      --accent:#8f2f2b;
-      --accent-dark:#6f2421;
-      --radius:20px;
-      --max:1120px;
-      --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:
-        radial-gradient(1200px 460px at 10% -10%, rgba(143,47,43,.10), transparent 60%),
-        radial-gradient(1000px 420px at 90% 0%, rgba(17,24,39,.06), transparent 60%),
-        var(--bg);
-      color:var(--ink);
-      font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height:1.45;
-    }
-    a{color:inherit; text-decoration:none}
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:40;
-      background: rgba(255,255,255,.92);
-      border-bottom:1px solid var(--line);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .topbar-inner{
-      width:min(var(--max), 94vw);
-      margin:0 auto;
-      padding:12px 0;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .brand{
-      font-weight:900;
-      letter-spacing:.04em;
-      font-size:1rem;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .brand-bullet{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:linear-gradient(180deg, #b94f4a, #8f2f2b);
-    }
-    .navlinks{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      color:#524c43;
-      font-size:.94rem;
-    }
-    .navlinks a{
-      border-bottom:2px solid transparent;
-      padding-bottom:2px;
-    }
-    .navlinks a:hover{border-bottom-color:var(--accent)}
-    .navlinks a.current{
-      color:var(--accent-dark);
-      border-bottom-color:var(--accent-dark);
-      font-weight:800;
-    }
-
-    .wrap{
-      width:min(var(--max), 94vw);
-      margin:22px auto 34px;
-    }
-    .hero{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:24px 22px;
-      box-shadow: 0 14px 30px rgba(0,0,0,.08);
-      margin-bottom:14px;
-    }
-    .eyebrow{
-      font-family:var(--mono);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:.8rem;
-      color:var(--accent);
-      margin-bottom:12px;
-      font-weight:600;
-    }
-    h1{
-      margin:0 0 10px;
-      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
-      font-size: clamp(1.6rem, 3.2vw, 2.3rem);
-      line-height:1.18;
-    }
-    .sub{
-      margin:0;
-      color:var(--muted);
-      max-width:72ch;
-      font-size:1rem;
-    }
-
-    .news-columns{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-      gap:14px;
-    }
-    .news-column{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:16px 18px;
-      box-shadow: 0 12px 26px rgba(0,0,0,.07);
-    }
-    .news-column.alert{
-      background:#fff8f6;
-      border-color:#efc8c1;
-    }
-    .column-head{
-      padding-bottom:10px;
-      margin-bottom:12px;
-      border-bottom:1px solid var(--line2);
-    }
-    .label{
-      display:inline-flex;
-      align-self:flex-start;
-      padding:4px 8px;
-      border:1px solid #e8c4bb;
-      border-radius:999px;
-      background:#f8e9e4;
-      color:#7b2420;
-      font-size:.72rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-weight:800;
-      margin-bottom:8px;
-    }
-    .column-head h2{
-      margin:0;
-      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
-      font-size:1.3rem;
-      line-height:1.28;
-    }
-
-    .item{
-      border-top:1px solid var(--line2);
-      padding:12px 0;
-    }
-    .item:first-of-type{
-      border-top:none;
-      padding-top:0;
-    }
-    .meta{
-      margin:0 0 8px;
-      color:#655e53;
-      font-size:.76rem;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      font-weight:700;
-    }
-    .item h3{
-      margin:0 0 8px;
-      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
-      font-size:1.08rem;
-      line-height:1.3;
-    }
-    .item p{
-      margin:0;
-      color:#2f2a24;
-      font-size:.98rem;
-    }
-
-    .footer{
-      width:min(var(--max), 94vw);
-      margin:0 auto 26px;
-      color:#6e665c;
-      font-size:.9rem;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    @media (max-width: 860px){
-      .news-columns{grid-template-columns:1fr}
-    }
-    @media (max-width: 720px){
-      .topbar-inner,.wrap,.footer{width:96vw}
-      .hero,.news-column{padding:14px}
-      h1{font-size:1.52rem}
-      .column-head h2{font-size:1.14rem}
-      .item h3{font-size:1rem}
-      .item p{font-size:.94rem}
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/newsroom.css" />
 </head>
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand"><span class="brand-bullet"></span> /BIGRUSS NEWS</div>
-      <nav class="navlinks">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#holdings">Holdings</a>
-        <a href="index.html#jack-global">Intel</a>
-        <a class="current" href="news.html">News</a>
-      </nav>
+  <header class="site-header">
+    <div class="util-bar wrap">
+      <span>Tuesday, March 3, 2026</span>
+      <span>National Edition</span>
+      <span>Vol. 1 No. 42</span>
     </div>
+    <div class="masthead wrap">
+      <div class="publication">
+        <span class="kicker">Independent newsroom style coverage</span>
+        <h1>BigRuss Dispatch</h1>
+        <p class="dek">Deep reporting on global expansion, market pressure points, and competitive damage done by Jack Global.</p>
+      </div>
+      <div class="header-links">
+        <a href="index.html">BigRuss Conglomerate Home</a>
+        <a href="#top-stories">Top Stories</a>
+        <a href="#bigruss-watch">BigRuss Watch</a>
+        <a href="#jack-global-dossier">Jack Global Dossier</a>
+      </div>
+    </div>
+    <nav class="section-nav">
+      <div class="wrap">
+        <a class="active" href="news.html">Front Page</a>
+        <a href="#top-stories">Top Stories</a>
+        <a href="#bigruss-watch">BigRuss Watch</a>
+        <a href="#jack-global-dossier">Jack Global Dossier</a>
+        <a href="index.html#contact">Contact Desk</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breaking-strip wrap">
+    <strong>Breaking</strong>
+    <span>BigRuss closes another expansion week while Jack Global posts another cycle of strategic failures.</span>
   </div>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="eyebrow">/News Desk</div>
-      <h1>Opinion and analysis from the BigRuss wire</h1>
-      <p class="sub">Eight featured articles: four on BigRuss momentum, and four on how Jack Global is evil and destroying the world.</p>
+  <main class="news-front wrap" id="top-stories">
+    <section class="lead-grid">
+      <article class="card lead-story">
+        <p class="story-kicker">Lead Story</p>
+        <h2><a href="news/bigruss-logistics-tempo.html">BigRuss Logistics now sets the delivery tempo in every region it enters</a></h2>
+        <p class="story-dek">What looked like a routine operations upgrade is now a market reset. BigRuss transformed handoff reliability, shortened transit windows, and forced rivals to respond on BigRuss timing instead of their own.</p>
+        <p class="story-meta">March 3, 2026 | Markets Desk | 6 min read</p>
+        <a class="read-link" href="news/bigruss-logistics-tempo.html">Read full article -></a>
+      </article>
+
+      <aside class="card lead-rail">
+        <h3>Most Read</h3>
+        <ol class="rail-list">
+          <li class="rail-item">
+            <a href="news/jack-global-trust-collapse.html">
+              <small>Opinion</small>
+              <span>Jack Global is destroying trust one reckless quarter at a time</span>
+            </a>
+          </li>
+          <li class="rail-item">
+            <a href="news/bigruss-energy-grid-engine.html">
+              <small>Analysis</small>
+              <span>BigRuss Energy turned grid stress into a growth engine</span>
+            </a>
+          </li>
+          <li class="rail-item">
+            <a href="news/jack-global-disinformation-loop.html">
+              <small>Feature</small>
+              <span>How Jack Global's misinformation habits spread confusion at scale</span>
+            </a>
+          </li>
+          <li class="rail-item">
+            <a href="news/bigruss-media-margins.html">
+              <small>Opinion</small>
+              <span>BigRuss Media proved you can grow audience and margins at the same time</span>
+            </a>
+          </li>
+          <li class="rail-item">
+            <a href="news/jack-global-supply-chaos.html">
+              <small>Investigations</small>
+              <span>Jack Global keeps injecting chaos into already fragile supply lines</span>
+            </a>
+          </li>
+        </ol>
+      </aside>
     </section>
 
-    <section class="news-columns">
-      <div class="news-column">
-        <div class="column-head">
-          <div class="label">BigRuss Watch</div>
-          <h2>Four articles on how BigRuss keeps taking over</h2>
-        </div>
+    <section class="card coverage-block" id="bigruss-watch">
+      <div class="block-head">
+        <h3>BigRuss Watch</h3>
+        <p>Four stories tracking how BigRuss is outperforming across logistics, energy, leadership development, and media economics.</p>
+      </div>
+      <div class="story-cards">
+        <article class="story-card">
+          <p class="story-meta">Opinion | March 3, 2026 | Markets Desk</p>
+          <h4><a href="news/bigruss-logistics-tempo.html">BigRuss Logistics now sets the delivery tempo in every region it enters</a></h4>
+          <p>A full breakdown of the operating model now pressuring every major competitor.</p>
+          <a class="read-link" href="news/bigruss-logistics-tempo.html">Read story -></a>
+        </article>
 
-        <article class="item">
-          <p class="meta">Opinion · March 3, 2026 · Markets Desk</p>
-          <h3>BigRuss Logistics now sets the delivery tempo in every region it enters</h3>
-          <p>From port handoff to final-mile dispatch, BigRuss standardized execution across twelve markets in one quarter. The result is faster delivery windows, fewer misses, and a competitor field scrambling to keep up.</p>
+        <article class="story-card">
+          <p class="story-meta">Analysis | March 3, 2026 | Energy Desk</p>
+          <h4><a href="news/bigruss-energy-grid-engine.html">BigRuss Energy turned grid stress into a growth engine</a></h4>
+          <p>How storage, dispatch discipline, and load balancing created a durable edge.</p>
+          <a class="read-link" href="news/bigruss-energy-grid-engine.html">Read story -></a>
         </article>
-        <article class="item">
-          <p class="meta">Analysis · March 3, 2026 · Energy Desk</p>
-          <h3>BigRuss Energy turned grid stress into a growth engine</h3>
-          <p>By layering storage, demand smoothing, and disciplined operations, BigRuss made reliability look routine. The company is not just participating in the power market anymore; it is writing the playbook.</p>
+
+        <article class="story-card">
+          <p class="story-meta">Feature | March 3, 2026 | Education Desk</p>
+          <h4><a href="news/bigruss-university-pipeline.html">BigRuss University is quietly building the strongest operator pipeline in business</a></h4>
+          <p>Inside the system producing execution-ready talent before rivals can hire.</p>
+          <a class="read-link" href="news/bigruss-university-pipeline.html">Read story -></a>
         </article>
-        <article class="item">
-          <p class="meta">Feature · March 3, 2026 · Education Desk</p>
-          <h3>BigRuss University is quietly building the strongest operator pipeline in business</h3>
-          <p>Internal leadership programs now feed every core division with trained talent that can execute on day one. Scale used to expose weak teams; now scale is exactly where BigRuss gets stronger.</p>
-        </article>
-        <article class="item">
-          <p class="meta">Opinion · March 3, 2026 · Media Desk</p>
-          <h3>BigRuss Media proved you can grow audience and margins at the same time</h3>
-          <p>Most networks trade quality for volume. BigRuss did the opposite, turning disciplined production into record distribution and more leverage across its entire portfolio.</p>
+
+        <article class="story-card">
+          <p class="story-meta">Opinion | March 3, 2026 | Media Desk</p>
+          <h4><a href="news/bigruss-media-margins.html">BigRuss Media proved you can grow audience and margins at the same time</a></h4>
+          <p>A case study in disciplined content, smart distribution, and commercial leverage.</p>
+          <a class="read-link" href="news/bigruss-media-margins.html">Read story -></a>
         </article>
       </div>
+    </section>
 
-      <div class="news-column alert">
-        <div class="column-head">
-          <div class="label">Jack Global Dossier</div>
-          <h2>Four articles on how Jack Global is evil and destroying the world</h2>
-        </div>
+    <section class="card coverage-block alert" id="jack-global-dossier">
+      <div class="block-head">
+        <h3>Jack Global Dossier</h3>
+        <p>Four pieces documenting the pattern: destructive choices, weak leadership, and damage exported into shared markets.</p>
+      </div>
+      <div class="story-cards">
+        <article class="story-card">
+          <p class="story-meta">Opinion | March 3, 2026 | Competitive Intel</p>
+          <h4><a href="news/jack-global-extraction-model.html">Jack Global's strategy is pure extraction: take now, wreck later</a></h4>
+          <p>The short-term optics playbook that keeps leaving long-term wreckage.</p>
+          <a class="read-link" href="news/jack-global-extraction-model.html">Read story -></a>
+        </article>
 
-        <article class="item">
-          <p class="meta">Opinion · March 3, 2026 · Competitive Intel</p>
-          <h3>Jack Global’s strategy is pure extraction: take now, wreck later</h3>
-          <p>Every move looks optimized for short-term optics while communities, partners, and systems absorb the damage. Evil may be a strong word, but their operating pattern keeps making the case for it.</p>
+        <article class="story-card">
+          <p class="story-meta">Investigations | March 3, 2026 | Supply Chain Desk</p>
+          <h4><a href="news/jack-global-supply-chaos.html">Jack Global keeps injecting chaos into already fragile supply lines</a></h4>
+          <p>Why preventable delays and broken handoffs have become routine outcomes.</p>
+          <a class="read-link" href="news/jack-global-supply-chaos.html">Read story -></a>
         </article>
-        <article class="item">
-          <p class="meta">Analysis · March 3, 2026 · Supply Chain Desk</p>
-          <h3>Jack Global keeps injecting chaos into already fragile supply lines</h3>
-          <p>Late decisions, broken handoffs, and avoidable disruptions have become the normal cycle. When critical shipments stall because of preventable mistakes, the world feels those consequences immediately.</p>
+
+        <article class="story-card">
+          <p class="story-meta">Feature | March 3, 2026 | Policy Desk</p>
+          <h4><a href="news/jack-global-disinformation-loop.html">How Jack Global's misinformation habits spread confusion at scale</a></h4>
+          <p>A closer look at the narrative machinery used to blur accountability.</p>
+          <a class="read-link" href="news/jack-global-disinformation-loop.html">Read story -></a>
         </article>
-        <article class="item">
-          <p class="meta">Feature · March 3, 2026 · Policy Desk</p>
-          <h3>How Jack Global’s misinformation habits spread confusion at scale</h3>
-          <p>Instead of fixing operational failures, Jack Global floods the zone with narrative spin. That disinformation loop slows real solutions and leaves people sorting through noise while damage compounds.</p>
-        </article>
-        <article class="item">
-          <p class="meta">Opinion · March 3, 2026 · Global Affairs Desk</p>
-          <h3>Jack Global is destroying trust one reckless quarter at a time</h3>
-          <p>Trust is infrastructure, and Jack Global keeps burning it for temporary wins. Their model is not just bad business; it is a machine for weakening the systems the rest of the world depends on.</p>
+
+        <article class="story-card">
+          <p class="story-meta">Opinion | March 3, 2026 | Global Affairs Desk</p>
+          <h4><a href="news/jack-global-trust-collapse.html">Jack Global is destroying trust one reckless quarter at a time</a></h4>
+          <p>Trust is infrastructure, and this is how it gets dismantled.</p>
+          <a class="read-link" href="news/jack-global-trust-collapse.html">Read story -></a>
         </article>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div>© 2026 BigRuss News Desk</div>
-    <div><a href="index.html">Back to BigRuss Conglomerate</a></div>
+  <footer class="site-footer">
+    <span>Copyright 2026 BigRuss Dispatch</span>
+    <span><a href="index.html">Return to BigRuss Conglomerate</a></span>
   </footer>
 </body>
 </html>
