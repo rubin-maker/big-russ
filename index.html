@@ -1675,6 +1675,7 @@
     const audioToggle = document.getElementById('audioToggle');
     if(introAudio && audioToggle){
       introAudio.volume = 0.72;
+      introAudio.muted = false;
       const syncAudioToggle = ()=>{
         const muted = introAudio.muted;
         audioToggle.textContent = muted ? 'Unmute Song' : 'Mute Song';
@@ -1691,6 +1692,18 @@
         }
         syncAudioToggle();
       };
+
+      const autoUnmuteAfterInteraction = async ()=>{
+        introAudio.muted = false;
+        if(introAudio.paused){
+          try{ await introAudio.play(); } catch {}
+        }
+        syncAudioToggle();
+      };
+
+      ['pointerdown', 'keydown', 'touchstart'].forEach(evt=>{
+        document.addEventListener(evt, autoUnmuteAfterInteraction, {once:true, passive:true});
+      });
 
       startAudio();
       audioToggle.addEventListener('click', async ()=>{
