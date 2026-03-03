@@ -1096,11 +1096,14 @@
           </nav>
 
           <div class="navcta">
+            <button class="btn" id="audioToggle" type="button" aria-pressed="true">Mute Song</button>
             <button class="btn" id="menuBtn" aria-label="Open menu">Menu</button>
             <button class="btn primary" id="openContact">Contact</button>
           </div>
         </div>
       </div>
+
+      <audio id="introAudio" src="big%20russ.mp3" preload="auto" autoplay loop></audio>
 
       <!-- HERO -->
       <section class="hero" id="top">
@@ -1667,6 +1670,37 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const introAudio = document.getElementById('introAudio');
+    const audioToggle = document.getElementById('audioToggle');
+    if(introAudio && audioToggle){
+      introAudio.volume = 0.72;
+      const syncAudioToggle = ()=>{
+        const muted = introAudio.muted;
+        audioToggle.textContent = muted ? 'Unmute Song' : 'Mute Song';
+        audioToggle.setAttribute('aria-pressed', String(!muted));
+      };
+
+      const startAudio = async ()=>{
+        try{
+          introAudio.muted = false;
+          await introAudio.play();
+        } catch {
+          introAudio.muted = true;
+          try{ await introAudio.play(); } catch {}
+        }
+        syncAudioToggle();
+      };
+
+      startAudio();
+      audioToggle.addEventListener('click', async ()=>{
+        if(introAudio.paused){
+          try{ await introAudio.play(); } catch {}
+        }
+        introAudio.muted = !introAudio.muted;
+        syncAudioToggle();
+      });
+    }
 
     // Topbar shadow on scroll
     const topbar = document.querySelector('.topbar');
