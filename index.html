@@ -1693,16 +1693,27 @@
         syncAudioToggle();
       };
 
-      const autoUnmuteAfterInteraction = async ()=>{
+      let audioUnlocked = false;
+      const autoUnmuteAfterInteraction = ()=>{
+        if(audioUnlocked) return;
         introAudio.muted = false;
-        if(introAudio.paused){
-          try{ await introAudio.play(); } catch {}
+        const playPromise = introAudio.play();
+        if(playPromise && typeof playPromise.then === 'function'){
+          playPromise.then(()=>{
+            audioUnlocked = true;
+            syncAudioToggle();
+          }).catch(()=>{
+            introAudio.muted = true;
+            syncAudioToggle();
+          });
+        } else {
+          audioUnlocked = true;
+          syncAudioToggle();
         }
-        syncAudioToggle();
       };
 
-      ['pointerdown', 'keydown', 'touchstart'].forEach(evt=>{
-        document.addEventListener(evt, autoUnmuteAfterInteraction, {once:true, passive:true});
+      ['pointerdown', 'click', 'keydown', 'touchstart'].forEach(evt=>{
+        document.addEventListener(evt, autoUnmuteAfterInteraction, {capture:true});
       });
 
       startAudio();
