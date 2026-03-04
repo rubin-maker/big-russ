@@ -1207,10 +1207,6 @@ img.poster-thumb {
 }
 
 .nh-voices article {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 8px;
-  align-items: center;
   border-top: 1px solid #ede9e0;
   padding-top: 8px;
 }
@@ -1231,6 +1227,17 @@ img.poster-thumb {
   margin: 0;
   font-size: 0.84rem;
   line-height: 1.34;
+}
+
+.nh-voice-link {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.nh-voice-link:hover p {
+  color: #bf3328;
 }
 
 @media (max-width: 1240px) {
