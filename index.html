@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BigRuss Conglomerate</title>
-  <meta name="description" content="BigRuss Conglomerate — Power, while also grace." />
+  <title>BigRuss Conglomerate | Built Like a Myth. Run Like a Machine.</title>
+  <meta name="description" content="BigRuss Conglomerate is a theatrical operator network spanning media, law, logistics, energy, music, and education." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BigRuss Conglomerate" />
-  <meta property="og:title" content="BigRuss Conglomerate" />
-  <meta property="og:description" content="BigRuss Conglomerate — Power, while also grace." />
+  <meta property="og:title" content="BigRuss Conglomerate | Built Like a Myth. Run Like a Machine." />
+  <meta property="og:description" content="A theatrical operator network spanning media, law, logistics, energy, music, and education." />
   <meta property="og:url" content="https://bigrussconglomerate.com/" />
   <meta property="og:image" content="https://bigrussconglomerate.com/brc-logo-white%20copy.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -16,8 +16,8 @@
   <meta property="og:image:height" content="1024" />
   <meta property="og:image:alt" content="BigRuss Conglomerate logo" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BigRuss Conglomerate" />
-  <meta name="twitter:description" content="BigRuss Conglomerate — Power, while also grace." />
+  <meta name="twitter:title" content="BigRuss Conglomerate | Built Like a Myth. Run Like a Machine." />
+  <meta name="twitter:description" content="A theatrical operator network spanning media, law, logistics, energy, music, and education." />
   <meta name="twitter:image" content="https://bigrussconglomerate.com/brc-logo-white%20copy.jpg" />
 
   <!-- Fonts -->
@@ -31,7 +31,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#0b1320">
 
   <style>
     :root{
@@ -1227,11 +1227,593 @@
       .navlinks a::after{transition: none}
     }
   </style>
+
+  <style>
+    :root{
+      --gold: #d2ae63;
+      --gold-soft: rgba(210,174,99,.16);
+      --ice: #8ed8ff;
+      --danger-soft: rgba(255,109,90,.18);
+      --paper-ink: #171310;
+      --paper-muted: #544d43;
+    }
+
+    .topbar::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(142,216,255,.35), transparent);
+      pointer-events:none;
+    }
+
+    .brand{
+      gap: 12px;
+    }
+    .brand::after{
+      content:"CONGLOMERATE CONTROL";
+      display:inline-flex;
+      align-items:center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(142,216,255,.18);
+      background: rgba(255,255,255,.04);
+      color: #a4b8d8;
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .12em;
+    }
+
+    .hero{
+      padding-top: 30px;
+      background:
+        radial-gradient(720px 440px at 14% 10%, rgba(142,216,255,.16), transparent 60%),
+        radial-gradient(680px 420px at 88% 18%, rgba(210,174,99,.14), transparent 62%),
+        linear-gradient(135deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+        var(--surface);
+    }
+    .command-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom: 22px;
+    }
+    .command-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(142,216,255,.18);
+      background: rgba(255,255,255,.04);
+      color: #dbe9ff;
+      font-family: var(--mono);
+      font-size: .73rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .command-pill strong{
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .hero-copy{
+      display:grid;
+      gap: 0;
+      align-content:start;
+    }
+    .hero-title{
+      margin: 0;
+      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+      font-size: clamp(2.9rem, 6.1vw, 5.35rem);
+      line-height: .94;
+      letter-spacing: -.05em;
+      color: #f7fbff;
+      max-width: 10ch;
+    }
+    .hero-title em{
+      font-style: normal;
+      color: #bfe7ff;
+    }
+    .hero-lead{
+      margin: 18px 0 0;
+      max-width: 60ch;
+      font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+      line-height: 1.65;
+      color: #c6d2e5;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin: 24px 0 28px;
+    }
+    .hero-proof{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .proof-card{
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(142,216,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+    }
+    .proof-label{
+      display:block;
+      margin-bottom: 10px;
+      color: #93a8ca;
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .proof-value{
+      display:block;
+      margin-bottom: 6px;
+      color: #f8fbff;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .proof-card p{
+      margin: 0;
+      color: #b5c2d7;
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+    .logo-stack{
+      display:grid;
+      gap: 14px;
+      align-content:start;
+    }
+    .logo-panel{
+      min-height: 308px;
+      padding: 16px;
+    }
+    .hero-sidecard{
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(210,174,99,.24);
+      background:
+        radial-gradient(320px 140px at 80% 0%, rgba(210,174,99,.12), transparent 70%),
+        rgba(13,20,35,.96);
+      box-shadow: var(--shadow2);
+    }
+    .hero-sidehead{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom: 12px;
+      color:#f3f7ff;
+      font-family: var(--mono);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .signal-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #79e2b5;
+      box-shadow: 0 0 0 6px rgba(121,226,181,.12);
+    }
+    .hero-note{
+      margin: 0 0 14px;
+      color: #d0daeb;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .hero-pulse{
+      display:grid;
+      gap: 10px;
+    }
+    .pulse-item{
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .pulse-item:first-child{
+      padding-top: 0;
+      border-top: none;
+    }
+    .pulse-item span{
+      display:block;
+      margin-bottom: 4px;
+      color: #93a8ca;
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .pulse-item strong{
+      color: #f4f7fd;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .pulse-item a:hover{
+      color: #bfe7ff;
+    }
+    .hero-marquee{
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      overflow:hidden;
+    }
+    .hero-marquee-track{
+      display:flex;
+      gap: 28px;
+      width:max-content;
+      color: #97a9c7;
+      font-family: var(--mono);
+      font-size: .77rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      animation: heroMarquee 24s linear infinite;
+    }
+    .hero-marquee-track span{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap: 28px;
+    }
+    .hero-marquee-track span::after{
+      content:"";
+      width: 8px;
+      height: 8px;
+      border-radius:999px;
+      background: rgba(210,174,99,.58);
+    }
+
+    #about{
+      background:
+        radial-gradient(560px 260px at 100% 0%, rgba(142,216,255,.12), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+        var(--surface);
+    }
+    .metric-card{
+      padding: 18px;
+    }
+    .metric-kicker{
+      display:block;
+      margin-bottom: 10px;
+      color:#8ea2c7;
+      font-family: var(--mono);
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .metric-value{
+      display:block;
+      margin-bottom: 8px;
+      color:#f5f8ff;
+      font-size: 1.38rem;
+      line-height: 1.2;
+    }
+
+    #origin-stories{
+      background:
+        linear-gradient(180deg, rgba(249,244,235,.98), rgba(240,231,217,.98)),
+        var(--paper);
+      border-color: rgba(207,185,143,.72);
+      box-shadow: 0 24px 48px rgba(14, 10, 4, .12);
+    }
+    #origin-stories .eyebrow{
+      color:#7f5323;
+    }
+    #origin-stories h2,
+    #origin-stories strong{
+      color: var(--paper-ink);
+    }
+    #origin-stories .subcopy,
+    #origin-stories p{
+      color: var(--paper-muted);
+    }
+    #origin-stories .btn.primary{
+      background: linear-gradient(135deg, #8a6230, #6f4d23);
+      box-shadow: 0 12px 24px rgba(111,77,35,.24);
+    }
+    .origin-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap: 14px;
+    }
+    .origin-story{
+      padding: 18px;
+      background: rgba(255,255,255,.58);
+      border-color: rgba(143,114,61,.18);
+    }
+    .origin-story strong{
+      font-size: 1.22rem;
+    }
+    .origin-stack{
+      display:grid;
+      gap: 14px;
+    }
+    .origin-note{
+      padding: 18px;
+      background: rgba(255,255,255,.64);
+      border-color: rgba(143,114,61,.14);
+    }
+    .origin-list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap: 10px;
+    }
+    .origin-list li{
+      padding-top: 10px;
+      border-top: 1px solid rgba(127,83,35,.14);
+      line-height: 1.55;
+    }
+    .origin-list li:first-child{
+      padding-top: 0;
+      border-top: none;
+    }
+
+    #holdings{
+      background:
+        radial-gradient(580px 280px at 0% 0%, rgba(142,216,255,.1), transparent 60%),
+        radial-gradient(520px 260px at 100% 100%, rgba(210,174,99,.08), transparent 62%),
+        var(--surface);
+    }
+    #holdings .grid-2{
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    #holdings .tile .body{
+      min-height: 146px;
+      display:grid;
+      align-content:start;
+      gap: 6px;
+    }
+
+    #industries .grid-4{
+      gap: 14px;
+    }
+    .industry-card{
+      padding: 18px;
+      min-height: 188px;
+      background:
+        radial-gradient(260px 120px at 100% 0%, rgba(142,216,255,.08), transparent 70%),
+        var(--surface-2);
+    }
+    .industry-kicker{
+      display:inline-flex;
+      margin-bottom: 12px;
+      color:#8ea2c7;
+      font-family: var(--mono);
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    #news.newsroom{
+      position: relative;
+    }
+    #news.newsroom::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius: inherit;
+      background:
+        linear-gradient(120deg, rgba(191,51,40,.05), transparent 32%),
+        radial-gradient(520px 220px at 100% 0%, rgba(191,51,40,.08), transparent 60%);
+      pointer-events:none;
+    }
+    #news .news-column{
+      position:relative;
+      z-index:1;
+    }
+
+    #jack-global{
+      background:
+        radial-gradient(520px 280px at 100% 0%, rgba(255,109,90,.12), transparent 60%),
+        linear-gradient(180deg, rgba(57,18,24,.98), rgba(20,7,10,.98));
+      border-color: rgba(176,89,96,.34);
+    }
+    #jack-global .eyebrow{
+      color:#ffb8ae;
+    }
+    #jack-global h2,
+    #jack-global strong{
+      color:#fff4f2;
+    }
+    #jack-global .subcopy,
+    #jack-global p{
+      color:#d7bdc0;
+    }
+    #jack-global .btn.primary{
+      background: linear-gradient(135deg, #bc483f, #8c2f29);
+      box-shadow: 0 12px 28px rgba(140,47,41,.28);
+    }
+    .intel-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+      gap: 14px;
+    }
+    .intel-card{
+      padding: 18px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+    }
+    .intel-stack{
+      display:grid;
+      gap: 12px;
+    }
+    .intel-stat{
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+    }
+    .intel-stat span{
+      display:block;
+      margin-bottom: 10px;
+      color:#f5c0b7;
+      font-family: var(--mono);
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .intel-stat strong{
+      display:block;
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+      line-height: 1.3;
+    }
+    .intel-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top: 18px;
+    }
+
+    .leadership-summary{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr);
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(142,216,255,.16);
+      background:
+        radial-gradient(420px 180px at 100% 0%, rgba(210,174,99,.12), transparent 65%),
+        rgba(255,255,255,.04);
+    }
+    .summary-kicker{
+      display:block;
+      margin-bottom: 10px;
+      color:#9db1d1;
+      font-family: var(--mono);
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .leadership-summary strong{
+      display:block;
+      color:#f4f8ff;
+      font-size: 1.28rem;
+      line-height: 1.35;
+    }
+    .leadership-summary p{
+      margin: 0;
+      color:#b9c5d9;
+      line-height: 1.6;
+      align-self:end;
+    }
+
+    #contact{
+      background:
+        radial-gradient(520px 240px at 0% 100%, rgba(142,216,255,.12), transparent 60%),
+        radial-gradient(420px 220px at 100% 0%, rgba(210,174,99,.1), transparent 60%),
+        var(--surface);
+    }
+    .contact-shell{
+      display:grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 14px;
+    }
+    .contact-feature{
+      padding: 20px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+        var(--surface-2);
+    }
+    .contact-feature strong{
+      font-size: 1.28rem;
+    }
+    .contact-feature p{
+      margin-top: 10px;
+      line-height: 1.65;
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    #audioToggle{
+      padding: 10px 16px;
+      min-height: 46px;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      border-width: 1px;
+      border-color: rgba(142,216,255,.32);
+      background: rgba(10,16,28,.82);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 16px 32px rgba(3, 10, 28, .4);
+    }
+
+    @keyframes heroMarquee{
+      0%{transform: translateX(0)}
+      100%{transform: translateX(-50%)}
+    }
+
+    @media (max-width: 1100px){
+      .hero-proof,
+      .contact-grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      #holdings .grid-2{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .contact-shell,
+      .leadership-summary,
+      .origin-grid,
+      .intel-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 900px){
+      .brand::after{
+        display:none;
+      }
+      .hero-proof{
+        grid-template-columns: 1fr;
+      }
+      .logo-panel{
+        min-height: 240px;
+      }
+    }
+    @media (max-width: 720px){
+      .command-bar{
+        gap: 8px;
+      }
+      .command-pill{
+        font-size: .66rem;
+        letter-spacing: .06em;
+      }
+      .hero-actions{
+        margin: 20px 0 22px;
+      }
+      .hero-title{
+        max-width: none;
+      }
+      #holdings .grid-2,
+      .contact-grid{
+        grid-template-columns: 1fr;
+      }
+      .hero-marquee-track{
+        animation-duration: 20s;
+      }
+      #audioToggle{
+        padding: 8px 10px;
+        min-height: 38px;
+        font-size: .64rem;
+        letter-spacing: .08em;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
-  <button class="btn" id="audioToggle" type="button" aria-pressed="true">Mute Song</button>
+  <button class="btn" id="audioToggle" type="button" aria-pressed="true">Soundtrack</button>
   <div class="wrap shell">
     <div class="page">
 
@@ -1260,33 +1842,99 @@
 
       <!-- HERO -->
       <section class="hero" id="top">
+        <div class="command-bar" aria-label="Conglomerate operating signals">
+          <div class="command-pill">Status <strong>Expansion mode</strong></div>
+          <div class="command-pill">Holding count <strong>7 active brands</strong></div>
+          <div class="command-pill">Coverage <strong><a href="news.html">Dispatch live</a></strong></div>
+        </div>
         <div class="hero-grid">
-          <div>
+          <div class="hero-copy">
             <div class="eyebrow">BIG RUSS CONGLOMERATE</div>
-            <p class="lead">
-              The highest performing conglomerate built for disciplined growth.
-              Operating in shadow and daylight simultaneously.
+            <h1 class="hero-title">Built like a myth. <em>Run like a machine.</em></h1>
+            <p class="lead hero-lead">
+              BigRuss Conglomerate is a theatrical operator network spanning media, law, logistics,
+              energy, music, education, and whatever else is useful next. The public face is spectacle.
+              The internal model is tempo, systems, and control.
             </p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn primary" href="#holdings">See Holdings</a>
-              <a class="btn" href="#jack-global">Jack Global</a>
+            <div class="hero-actions">
+              <a class="btn primary" href="#holdings">Explore Holdings</a>
+              <a class="btn" href="news.html">Read the Dispatch</a>
+              <a class="btn" href="#jack-global">Open Intel</a>
+            </div>
+            <div class="hero-proof">
+              <div class="proof-card">
+                <span class="proof-label">Portfolio</span>
+                <strong class="proof-value">7</strong>
+                <p>Media, law, energy, logistics, music, university, and platform distribution.</p>
+              </div>
+              <div class="proof-card">
+                <span class="proof-label">Operating model</span>
+                <strong class="proof-value">24/7</strong>
+                <p>Acquire, standardize, and keep the machine moving faster than the narrative.</p>
+              </div>
+              <div class="proof-card">
+                <span class="proof-label">Competitive mood</span>
+                <strong class="proof-value">Cold</strong>
+                <p>Benchmarking rivals mainly to remind ourselves what weak execution looks like.</p>
+              </div>
             </div>
           </div>
 
-          <div class="logo-panel" aria-label="BigRuss video">
-            <div class="hero-video has-embed" aria-label="BigRuss embedded YouTube video">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/9vKTH7sfHwc"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen
-                loading="eager">
-              </iframe>
+          <div class="logo-stack">
+            <div class="logo-panel" aria-label="BigRuss video">
+              <div class="hero-video has-embed" aria-label="BigRuss embedded YouTube video">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/9vKTH7sfHwc"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                  loading="eager">
+                </iframe>
+              </div>
             </div>
+            <aside class="hero-sidecard">
+              <div class="hero-sidehead"><span class="signal-dot" aria-hidden="true"></span>Conglomerate Control Room</div>
+              <p class="hero-note">
+                The external story is swagger. The internal brief is simpler: own the channel,
+                tighten the operation, and make growth feel inevitable.
+              </p>
+              <div class="hero-pulse">
+                <div class="pulse-item">
+                  <span>Now watching</span>
+                  <strong><a href="news.html">The Large Business Dispatch</a></strong>
+                </div>
+                <div class="pulse-item">
+                  <span>Signal</span>
+                  <strong>Execution first. Lore second. Never the other way around.</strong>
+                </div>
+                <div class="pulse-item">
+                  <span>Benchmark</span>
+                  <strong><a href="#jack-global">Competitive intel remains open</a></strong>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <div class="hero-marquee" aria-hidden="true">
+          <div class="hero-marquee-track">
+            <span>BigRuss Media</span>
+            <span>BigRuss Law</span>
+            <span>RussRail Logistics</span>
+            <span>BigRuss Energy</span>
+            <span>BigRuss Music</span>
+            <span>BigRuss University</span>
+            <span>Large Business Dispatch</span>
+            <span>BigRuss Media</span>
+            <span>BigRuss Law</span>
+            <span>RussRail Logistics</span>
+            <span>BigRuss Energy</span>
+            <span>BigRuss Music</span>
+            <span>BigRuss University</span>
+            <span>Large Business Dispatch</span>
           </div>
         </div>
       </section>
@@ -1305,9 +1953,21 @@
         </div>
 
         <div class="grid-3">
-          <div class="card"><strong>Shadow + Daylight</strong><p>Simultaneous operations.</p></div>
-          <div class="card"><strong>Bigger Fish</strong><p>Exactly. Exactly.</p></div>
-          <div class="card"><strong>Total Touch</strong><p>Global influence with measurable outcomes.</p></div>
+          <div class="card metric-card">
+            <span class="metric-kicker">Operating posture</span>
+            <strong class="metric-value">Shadow + daylight</strong>
+            <p>Public-facing polish backed by private operator discipline and tight internal systems.</p>
+          </div>
+          <div class="card metric-card">
+            <span class="metric-kicker">Growth logic</span>
+            <strong class="metric-value">Scale the myth. Ship the work.</strong>
+            <p>Every brand is theatrical on purpose, but the engine underneath is built around repeatable execution.</p>
+          </div>
+          <div class="card metric-card">
+            <span class="metric-kicker">Reach</span>
+            <strong class="metric-value">Narrative, legal, physical, digital</strong>
+            <p>Influence moves across screens, contracts, freight lanes, grids, and leadership pipelines.</p>
+          </div>
         </div>
       </section>
 
@@ -1324,8 +1984,8 @@
           <a class="btn primary" href="news/founder-vision-conglomerate.html">Read Founder Profile</a>
         </div>
 
-        <div class="grid-2">
-          <div class="card">
+        <div class="origin-grid">
+          <div class="card origin-story">
             <strong>Origin Story: The Clinton Meeting</strong>
             <p>
               One internal version of the founding legend says that at age six, BigRuss crossed paths with Bill Clinton,
@@ -1338,6 +1998,23 @@
               Today it is framed as the largest conglomerate in the world and still growing.
             </p>
           </div>
+          <div class="origin-stack">
+            <div class="card origin-note">
+              <strong>What matters more than whether it happened</strong>
+              <p>
+                Inside the company, the purpose of the story is not historical accuracy. It is to establish a tone:
+                important people noticed BigRuss early, the scale was always destined, and hesitation was never part of the plan.
+              </p>
+            </div>
+            <div class="card origin-note">
+              <strong>Repeatable fragments of the lore</strong>
+              <ul class="origin-list">
+                <li>Influence arrived early and in rooms where it should not have been possible.</li>
+                <li>International business leaders recognized the opportunity before anyone else could name it.</li>
+                <li>The conglomerate was treated internally as destiny long before it was treated externally as a company.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1348,10 +2025,10 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">/HOLDINGS</div>
-            <h2>Holdings Solutions</h2>
-            <div class="subcopy">Diverse business needs. Unclear methods. Consistent outcomes.</div>
+            <h2>Portfolio built for spectacle and scale</h2>
+            <div class="subcopy">Each holding looks like its own myth. Underneath, the same operating pressure keeps all of them moving.</div>
           </div>
-          <a class="btn primary" href="#contact">See All</a>
+          <a class="btn primary" href="#contact">Start a Conversation</a>
         </div>
 
         <div class="grid-2">
@@ -1378,10 +2055,74 @@
         </div>
 
         <div class="grid-4">
-          <div class="card"><strong>Retail & E-Commerce</strong><p>Streamlined fulfillment. Reduced friction. Increased compliance.</p></div>
-          <div class="card"><strong>Manufacturing</strong><p>Supply chain control from raw materials to finished goods.</p></div>
-          <div class="card"><strong>Healthcare & Pharmacy</strong><p>Secure handling for sensitive shipments and high-stakes timing.</p></div>
-          <div class="card"><strong>Technology & Electronics</strong><p>Scaling systems across regions, time zones, and complex markets.</p></div>
+          <div class="card industry-card"><span class="industry-kicker">Retail</span><strong>Retail &amp; E-Commerce</strong><p>Fulfillment, distribution, and digital shelf pressure built for impatient customers and large volumes.</p></div>
+          <div class="card industry-card"><span class="industry-kicker">Manufacturing</span><strong>Manufacturing</strong><p>Control across sourcing, movement, and downstream delivery when timing matters more than excuses.</p></div>
+          <div class="card industry-card"><span class="industry-kicker">Healthcare</span><strong>Healthcare &amp; Pharmacy</strong><p>Secure handling for sensitive inventory, controlled handoffs, and moments where misses are expensive.</p></div>
+          <div class="card industry-card"><span class="industry-kicker">Technology</span><strong>Technology &amp; Electronics</strong><p>Systems that scale across regions, partners, launches, and infrastructure complexity without losing tempo.</p></div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- NEWSROOM -->
+      <section id="news" class="newsroom">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">/THE LARGE BUSINESS DISPATCH</div>
+            <h2>The internal propaganda arm became a real front page</h2>
+            <div class="subcopy">Coverage across operator culture, competitive dossiers, and the more theatrical corners of conglomerate life.</div>
+          </div>
+          <a class="btn primary" href="news.html">Open Newsroom</a>
+        </div>
+
+        <div class="news-columns">
+          <div class="news-column">
+            <div class="news-column-head">
+              <span class="news-label">Operator Watch</span>
+              <h3>The machine as told by its most confident desks</h3>
+            </div>
+            <div class="news-list">
+              <article class="news-item">
+                <p class="news-meta">March 3, 2026 • Markets Desk</p>
+                <h4><a href="news/network-logistics-tempo.html">BigRuss logistics has reset the delivery standard</a></h4>
+                <p>How the portfolio turns speed, routing discipline, and repetition into a brand-level advantage.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">March 3, 2026 • Energy Desk</p>
+                <h4><a href="news/network-energy-grid-engine.html">The grid stress playbook now belongs to BigRuss Energy</a></h4>
+                <p>A confident argument that volatility is not a threat when the operator expects it.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">March 3, 2026 • Media Desk</p>
+                <h4><a href="news/network-media-margins.html">BigRuss Media found the audience + margin cheat code</a></h4>
+                <p>Audience growth, pricing power, and editorial swagger packaged as one coherent strategy.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="news-column alert">
+            <div class="news-column-head">
+              <span class="news-label">Jack Global Dossier</span>
+              <h3>A competitor so noisy it became its own case study</h3>
+            </div>
+            <div class="news-list">
+              <article class="news-item">
+                <p class="news-meta">March 3, 2026 • Competitive Intel</p>
+                <h4><a href="news/jack-global-extraction-model.html">Take now, wreck later: the extraction strategy</a></h4>
+                <p>Inside a model that keeps prioritizing short-term removal over durable control.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">March 3, 2026 • Policy Desk</p>
+                <h4><a href="news/jack-global-disinformation-loop.html">How Jack Global weaponized confusion</a></h4>
+                <p>The firm’s operating habit of turning ambiguity into cover instead of clarity into leverage.</p>
+              </article>
+              <article class="news-item">
+                <p class="news-meta">March 3, 2026 • Investigations Desk</p>
+                <h4><a href="news/jack-global-trust-collapse.html">Trust destruction has become quarterly policy</a></h4>
+                <p>Why reputation decay is no longer collateral damage and now appears to be a core output.</p>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1399,26 +2140,40 @@
           <button class="btn primary" id="openIntel2">Open Dossier</button>
         </div>
 
-        <div class="grid-2">
-          <div class="card">
+        <div class="intel-grid">
+          <div class="intel-card">
             <strong>Jack Global</strong>
-            <p style="margin:0; color:var(--muted); font-size:17px">
-              Jack Global is evil, awful, and sucks at basically everything they touch.
-              Their operation is noisy, sloppy, and built on bad judgment with zero discipline.
-              <br/><br/>
-              Every move they make is a reminder of what not to do in modern business.
-              <br/><br/>
-              <a class="btn primary" href="https://jack-global.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; font-size:20px; padding:12px 18px;">Visit Jack-Global.com</a>
+            <p style="margin:12px 0 0; font-size:17px; line-height:1.7">
+              Jack Global is useful mostly as a control group: an adjacent operation that repeatedly
+              proves what happens when noise outruns systems. Their posture is oversized confidence,
+              weak discipline, and a tendency to confuse chaos with ambition.
             </p>
+            <p style="margin:14px 0 0; font-size:17px; line-height:1.7">
+              We monitor them because they create accidental lessons in bad sequencing, poor leadership,
+              and self-inflicted trust damage. The contrast sharpens our own standards.
+            </p>
+            <div class="intel-actions">
+              <a class="btn primary" href="news/jack-global-extraction-model.html">Read Dossier</a>
+              <a class="btn" href="https://jack-global.com/" target="_blank" rel="noopener noreferrer">Visit Jack-Global.com</a>
+            </div>
           </div>
 
-          <div class="card">
-            <strong>Reality Check</strong>
-            <p style="margin:0; color:var(--muted); font-size:17px">
-              We monitor Jack Global because they are a live example of bad execution, weak systems, and poor leadership.
-              <br/><br/>Their performance is consistently underwhelming, and their strategic decisions are routinely questionable.
-              <br/><br/>We stay focused on execution, ownership, and long-term control while they keep proving our point.
-            </p>
+          <div class="intel-stack">
+            <div class="intel-stat">
+              <span>Signal 01</span>
+              <strong>Confusion keeps replacing coordination</strong>
+              <p>Internal and external messaging drift in different directions, which usually means the operation is drifting too.</p>
+            </div>
+            <div class="intel-stat">
+              <span>Signal 02</span>
+              <strong>Trust losses are now structural</strong>
+              <p>Reputation damage is not an occasional side effect. It increasingly looks like a standard quarterly output.</p>
+            </div>
+            <div class="intel-stat">
+              <span>Signal 03</span>
+              <strong>Tempo without discipline becomes waste</strong>
+              <p>Moving loudly is not the same thing as moving well, and Jack Global keeps illustrating the difference.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1434,6 +2189,14 @@
             <div class="subcopy">Built for continuity, scale, and long-horizon execution.</div>
           </div>
           <a class="btn primary" href="#contact">Contact Leadership</a>
+        </div>
+
+        <div class="leadership-summary">
+          <div>
+            <span class="summary-kicker">Operator bench</span>
+            <strong>The org chart is part executive roster, part folklore archive, and part production machine.</strong>
+          </div>
+          <p>Titles vary wildly, but the common expectation is stable: move the portfolio forward, protect the myth, and keep the work shipping.</p>
         </div>
 
         <div class="grid-2">
@@ -1750,9 +2513,20 @@
           <button class="btn primary" id="openContact2">Submit Proposal</button>
         </div>
 
-        <div class="grid-2">
-          <div class="card"><strong>Email</strong><p>partnerships@bigrussconglomerate.com</p></div>
-          <div class="card"><strong>Phone</strong><p>(555) 010-0199</p></div>
+        <div class="contact-shell">
+          <div class="card contact-feature">
+            <strong>Bring something large, strange, or strategically useful.</strong>
+            <p>
+              BigRuss responds best to proposals with scale, clear leverage, and a reason the opportunity
+              should exist under this banner instead of anyone else's. If the pitch has teeth, it gets read.
+            </p>
+          </div>
+          <div class="contact-grid">
+            <div class="card"><strong>Email</strong><p>partnerships@bigrussconglomerate.com</p></div>
+            <div class="card"><strong>Phone</strong><p>(555) 010-0199</p></div>
+            <div class="card"><strong>Media Desk</strong><p><a href="news.html">The Large Business Dispatch</a></p></div>
+            <div class="card"><strong>Operating footprint</strong><p>Richmond, New York, and wherever expansion makes sense next.</p></div>
+          </div>
         </div>
       </section>
 
@@ -1839,7 +2613,10 @@
       introAudio.muted = false;
       const syncAudioToggle = ()=>{
         const muted = introAudio.muted;
-        audioToggle.textContent = muted ? 'Unmute Song' : 'Mute Song';
+        const compactLabel = window.matchMedia('(max-width: 720px)').matches;
+        audioToggle.textContent = compactLabel
+          ? (muted ? 'Sound Off' : 'Sound On')
+          : (muted ? 'Soundtrack Off' : 'Soundtrack On');
         audioToggle.setAttribute('aria-pressed', String(!muted));
       };
 
@@ -1972,7 +2749,7 @@
     // Scroll reveal + subtle hero parallax
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!reduce){
-      const revealTargets = document.querySelectorAll('.tile, .card, .logo-panel');
+      const revealTargets = document.querySelectorAll('.tile, .card, .logo-panel, .hero-sidecard, .news-column, .intel-stat, .leadership-summary');
       const mobile = window.matchMedia('(max-width: 720px)').matches;
       const canObserve = 'IntersectionObserver' in window;
 
