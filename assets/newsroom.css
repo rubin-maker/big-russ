@@ -549,6 +549,15 @@ img.poster-thumb {
   object-fit: cover;
 }
 
+.article-hero img.tall-poster {
+  display: block;
+  width: min(100%, 560px);
+  margin: 0 auto;
+  max-height: 760px;
+  object-fit: contain;
+  background: #f1eee8;
+}
+
 .article-hero figcaption {
   margin: 0;
   padding: 8px 10px;
