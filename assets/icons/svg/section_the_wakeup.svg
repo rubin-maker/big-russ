@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect x="12" y="12" width="488" height="488" rx="44" fill="#F6F0E8" stroke="#121212" stroke-width="2"/>
+  <rect x="28" y="28" width="456" height="44" fill="#121212" fill-opacity="0.06"/>
+  <rect x="28" y="28" width="26" height="456" fill="#962A2A"/>
+  <line x1="130" y1="320" x2="382" y2="320" stroke="#121212" stroke-width="10"/>
+  <path d="M166 320 A90 90 0 0 1 346 320" stroke="#962A2A" stroke-width="10" fill="none"/>
+  <line x1="207.5" y1="292.0" x2="172.9" y2="272.0" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+  <line x1="223.1" y1="274.7" x2="199.6" y2="242.3" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+  <line x1="244.4" y1="265.2" x2="236.0" y2="226.1" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+  <line x1="267.6" y1="265.2" x2="276.0" y2="226.1" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+  <line x1="288.9" y1="274.7" x2="312.4" y2="242.3" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+  <line x1="304.5" y1="292.0" x2="339.1" y2="272.0" stroke="#121212" stroke-width="5" stroke-linecap="round"/>
+  <text x="150" y="414" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#121212">THE WAKEUP</text>
+  <text x="150" y="484" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#121212" fill-opacity="0.65">EDITORIAL ICON</text>
+</svg>

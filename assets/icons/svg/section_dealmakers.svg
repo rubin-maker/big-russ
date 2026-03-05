@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect x="12" y="12" width="488" height="488" rx="44" fill="#F6F0E8" stroke="#121212" stroke-width="2"/>
+  <rect x="28" y="28" width="456" height="44" fill="#121212" fill-opacity="0.06"/>
+  <rect x="28" y="28" width="26" height="456" fill="#962A2A"/>
+  <line x1="132" y1="256" x2="248" y2="256" stroke="#121212" stroke-width="10" stroke-linecap="round"/>
+  <polyline points="218,220 248,256 218,292" stroke="#121212" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="264" y1="256" x2="380" y2="256" stroke="#962A2A" stroke-width="10" stroke-linecap="round"/>
+  <polyline points="294,220 264,256 294,292" stroke="#962A2A" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 310 A84 84 0 0 1 248 202" stroke="#121212" stroke-width="10" fill="none"/>
+  <path d="M380 202 A84 84 0 0 1 264 310" stroke="#962A2A" stroke-width="10" fill="none"/>
+  <text x="150" y="414" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#121212">DEALMAKERS</text>
+  <text x="150" y="484" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#121212" fill-opacity="0.65">EDITORIAL ICON</text>
+</svg>

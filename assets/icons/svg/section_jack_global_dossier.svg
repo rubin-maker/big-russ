@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect x="12" y="12" width="488" height="488" rx="44" fill="#F6F0E8" stroke="#121212" stroke-width="2"/>
+  <rect x="28" y="28" width="456" height="44" fill="#121212" fill-opacity="0.06"/>
+  <rect x="28" y="28" width="26" height="456" fill="#962A2A"/>
+  <rect x="132" y="196" width="248" height="170" rx="20" stroke="#121212" stroke-width="10"/>
+  <rect x="182" y="164" width="120" height="44" fill="#F6F0E8" stroke="#121212" stroke-width="10"/>
+  <line x1="256" y1="228" x2="256" y2="320" stroke="#962A2A" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="256" cy="346" r="12" fill="#962A2A"/>
+  <text x="150" y="414" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#121212">JACK</text>
+  <text x="150" y="456" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#121212">GLOBAL DOSSIER</text>
+  <text x="150" y="484" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#121212" fill-opacity="0.65">EDITORIAL ICON</text>
+</svg>
