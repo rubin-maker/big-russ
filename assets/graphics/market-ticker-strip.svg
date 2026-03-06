@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 64" width="1200" height="64" fill="none">
+  <rect width="1200" height="64" fill="#111111"/>
+  <text x="30" y="40" font-size="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-weight="700" letter-spacing="1.2" fill="#f7f3eb">MARKETS</text>
+  <text x="170" y="40" font-size="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" fill="#f7f3eb">BRX 4,206 ▲ 1.4%</text>
+  <text x="400" y="40" font-size="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" fill="#f7f3eb">LOGX 821 ▲ 0.8%</text>
+  <text x="620" y="40" font-size="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" fill="#f7f3eb">ENER 193 ▼ 0.2%</text>
+  <text x="860" y="40" font-size="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" fill="#f7f3eb">MEDA 302 ▲ 2.1%</text>
+</svg>
